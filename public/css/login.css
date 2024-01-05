@@ -1,0 +1,70 @@
+.login_modal_trigger{
+    width: 100px;
+    cursor: pointer;
+}
+.logo_login_modal{
+    background-color: #2e319236;
+    display: flex;
+}
+.login_modal{
+    padding: 30px
+}
+.custom-modal-size{
+    max-width: 65%;
+}
+.content_login_modal{
+    padding: 60px 55px 60px 90px
+}
+.content_login_modal .request_for_login{
+    margin-bottom: 3rem;
+}
+.login_modal_submit_button{
+    margin-top: 22px;
+    width: 100%;
+    background-color: #2E3192;
+    border: 1px solid #2E3192;
+    color: white;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 20px;
+}
+.logo_login_modal img{
+    width: 100%
+}
+.content_login_modal .form-control:focus{
+    box-shadow: 0 0 0 0.25rem #2e319236;
+    border: #2E3192;
+}
+.register_redirect{
+    margin-top: 3rem;
+}
+.register_redirect_asking{
+    margin-top: 2px;
+}
+.register_redirect a{
+    text-decoration: none;
+    color: #2E3192;
+}
+.container{
+    position: relative;
+}
+.login_modal_close_button_container{
+    position: absolute;
+    top: 3%;
+    right: 1%
+}
+.login_modal_close_button_container button{
+    background-color: transparent;
+    border: unset;
+}
+.login_modal_close_button_container img{
+    width: 40px;
+}
+.input_password_container{
+    position: relative;;
+}
+.show_password_icon{
+    position: absolute;
+    top: 27%;
+    right: 5%
+}

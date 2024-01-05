@@ -1,0 +1,50 @@
+.back_to_homepage a{
+    text-decoration: none;
+    color: #2E3192;
+    margin-left: 20px;
+    margin-top: 10px;
+    display: inline-block;
+}
+.back_to_homepage img{
+    vertical-align: bottom;
+    width: 35px
+}
+.back_to_homepage span{
+    font-size: 25px;
+    display: inline-block;
+    margin-left: 3px;
+}
+.register_content{
+    margin: auto;
+    width: 35%
+}
+.register_logo img{
+    margin-bottom: 25px;
+    width: 480px
+}
+.register_form_content .form-control:focus{
+    box-shadow: 0 0 0 0.25rem #2e319236;
+    border: #2E3192;
+}
+.register_form_content button{
+    width: 100%;
+    background-color: #2E3192;
+    border: 1px solid #2E3192;
+    color: white;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.register_error_display{
+    color: red;
+}
+.input_password_container{
+    position: relative;;
+}
+.show_password_icon{
+    position: absolute;
+    top: 27%;
+    right: 5%
+}
