@@ -1,0 +1,31 @@
+.category_option, .rating_option{
+    list-style: none;
+    padding-left: 0;
+}
+.rating_option a{
+    color: #2E3192;
+    text-decoration: unset;
+}
+.price_range_input{
+    width: 45%;
+    border-radius: 8px;
+    border: 1px solid gainsboro;
+}
+.price_range_wrapper{
+    width: 200px;
+}
+.rating_section p,
+.price_range_section p,
+.publishing_company_section p,
+.author_section p,
+.cover_type_section p{
+    font-weight: bold;
+    margin-top: 7px;
+}
+hr{
+    color: gainsboro;
+}
+.col-auto{
+    height: 100%;
+    padding-bottom: 10px;
+}

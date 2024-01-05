@@ -1,0 +1,90 @@
+.receiver_info{
+    margin-left: 10px;
+}
+.receiver_address{
+    margin-bottom: unset;
+}
+.receiver_name, 
+.receiver_phone{
+    font-weight: 600;
+}
+.receiver_name{
+    border-right: 1px solid gainsboro;
+    padding-right: 20px;
+}
+.receiver_phone{
+    padding-left: 20px;
+}
+.price_info{
+    justify-content: space-between;
+}
+.total_amount_wrapper h4{
+    color: #2E3192;
+}
+
+.payment_by_card{
+    margin-top: 10px;
+}
+.payment_choose_wrapper button,
+.cart_order_button{
+    padding: 15px 10px;
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 18px;
+    background-color: white;
+}
+.button_header{
+    color: #2E3192;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.cart_order_button{
+    background-color: #2E3192;
+    border: 1px solid #2E3192;
+    color: white;
+    margin-top: 15px;
+}
+.payment_by_cash_content {
+    font-size: 16px;
+}
+.visible {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+.payment_choose_wrapper button{
+    padding-bottom: 6px;
+    text-align: left;
+}
+.card_information_form label,
+.card_information_form input{
+    display: block;
+}
+.card_information_form input{
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid gainsboro;
+}
+.card_information_form label{
+    font-size: 16px;
+    margin-top: 23px;
+    color: gray;
+}
+.card_information_form input:focus{
+    outline: none !important;
+    border: 2px solid #2E3192;
+}
+.payment_choose_wrapper button {
+    transition: height 0.3s ease-in-out;
+}
+
+.payment_choose_wrapper .hidden {
+    height: 0;
+    overflow: hidden;
+}
+
+.payment_choose_wrapper .visible {
+    height: auto;
+}

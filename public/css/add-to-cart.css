@@ -1,0 +1,32 @@
+.add_to_cart_increase_button,
+.add_to_cart_decrease_button{
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+    height: 33px;
+    color: #2E3192;
+}
+.add_to_cart_increase_button:hover,
+.add_to_cart_decrease_button:hover{
+    background-color: #d14abbc9;
+}
+.product_quantity{
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    height: 33px;
+    width: 45px;
+    text-align: center;
+}
+.temporary_product_price{
+    color:#2E3192;
+}
+.add_to_cart_submit_button{
+    width: 100%;
+    background-color: #2E3192;
+    border: 1px solid #2E3192;
+    color: white;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 20px;
+    margin-top: 22px;
+}

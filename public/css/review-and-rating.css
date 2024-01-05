@@ -1,0 +1,176 @@
+
+  .review_and_rating p {
+    font-size: 16px;
+    line-height: 1.63;
+  }
+  h5, .h5 {
+    font-weight: 700;
+  }
+  .review_rating_title {
+    margin-bottom: 20px !important;
+  }
+  .pt--40 {
+    padding-top: 40px !important;
+  }
+  @media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .row--30 {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .row--30 {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .row--30 {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .row--30 {
+      margin-left: -15px !important;
+      margin-right: -15px !important;
+    }
+  }
+  .row--30 > [class*="col"], .row--30 > [class*="col-"] {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .row--30 > [class*="col"], .row--30 > [class*="col-"] {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .row--30 > [class*="col"], .row--30 > [class*="col-"] {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .row--30 > [class*="col"], .row--30 > [class*="col-"] {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .row--30 > [class*="col"], .row--30 > [class*="col-"] {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+  }
+.review_and_rating .average_rating_box{
+    background: #FFFFFF;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 5px;
+    text-align: center;
+    min-width: 200px;
+    padding: 29px 10px;
+  }
+.review_and_rating .average_rating_box .average_rating_number{
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 90px;
+    color: #2E3192;
+  }
+.review_and_rating .course-tab-content {
+    margin-top: 40px;
+  }
+.review_and_rating .average_rating_box {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 5px;
+    text-align: center;
+    min-width: 200px;
+    padding: 29px 10px;
+  }
+  .review-wrapper .rating_progress_bar {
+    position: relative;
+  }
+  .review-wrapper .single_rating {
+    display: inline-block;
+    position: relative;
+    top: 19px;
+  }
+  .review-wrapper .progress {
+    max-width: 83%;
+    margin-left: 38px;
+    height: 12px;
+    background: #EEEEEE;
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .review-wrapper .progress {
+      max-width: 80%;
+    }
+  }
+  .review-wrapper .progress .progress-bar {
+    background-color: #2E3192;
+  }
+  .review-wrapper span.number_of_single_rating {
+    position: absolute;
+    right: 0;
+    top: 50%;
+  }
+  .edu-comment {
+    display: flex;
+  }
+  @media only screen and (max-width: 575px) {
+    .edu-comment {
+      flex-direction: column;
+    }
+  }
+  .edu-comment .thumbnail {
+    min-width: 70px;
+    width: 70px;
+    max-height: 70px;
+    border-radius: 100%;
+    margin-right: 25px;
+  }
+  .edu-comment .thumbnail img {
+    border-radius: 100%;
+    width: 100%;
+  }
+  .edu-comment .comment_content .comment_header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .edu-comment .comment_content .comment_user_name {
+    font-size: 13px;
+    line-height: 32px;
+    margin-bottom: unset;
+    height: 28px;
+  }
+
+  @media only screen and (max-width: 575px) {
+    .edu-comment .comment_content {
+      margin-top: 20px;
+    }
+  }
+  .edu-comment + .edu-comment {
+    border-top: 1px solid #EEEEEE;
+    padding-top: 30px;
+    margin-top: 30px;
+  }
+.average_rating_star{
+    color: #2E3192;
+}
+.average_rating_box span{
+    color: gray;
+}
+.review_and_rating svg{
+    vertical-align: unset;
+}
+.rating_create_date{
+    color: gray;
+    font-size: 11px;
+}
+.comment_text{
+    margin-top: 20px;
+    margin-bottom: unset;
+}

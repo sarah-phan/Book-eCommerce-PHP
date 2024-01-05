@@ -1,0 +1,59 @@
+
+.cart_header_wrapper{
+  padding-bottom: 5px;
+}
+.cart_title{
+  margin-top: 30px;
+}
+.cart_subtitle{
+  color: gray;
+}
+.cart_header_wrapper p{
+  color: #2E3192;
+  font-weight: 600;
+  font-size: 19px;
+}
+.cart_body_wrapper{
+  margin-top: 16px;
+}
+.cart_book_detail{
+  display: flex;
+}
+.cart_book_detail img{
+  width: 80px;
+  height: 80px
+}
+.cart_book_detail p{
+  font-weight: 600;
+}
+.cart_body_wrapper a{
+  text-decoration: none;
+  color: black;
+}
+.cart_body_wrapper .temporary_product_price{
+  color: black;
+}
+.cart_body_wrapper .add_to_cart_decrease_button,
+.cart_body_wrapper .add_to_cart_increase_button{
+  padding: 6px;
+  border: unset;
+}
+.cart_body_wrapper .product_quantity{
+  border: unset;
+  border-right: 1px solid gainsboro;
+  border-radius: unset;
+}
+.cart_group_input{
+  border: 1px solid gainsboro;
+  width:115px;
+  border-radius: 5px;
+}
+.cart_body_wrapper .add_to_cart_decrease_button{
+  border-right: 1px solid gainsboro;
+  border-radius: unset;
+}
+.cart_body_wrapper .add_to_cart_decrease_button:hover,
+.cart_body_wrapper .add_to_cart_increase_button:hover{
+  background-color: unset;
+  cursor: pointer;
+}

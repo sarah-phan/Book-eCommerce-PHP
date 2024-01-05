@@ -1,0 +1,28 @@
+.item_list .card{
+    margin-top: 10px;
+  }  
+.item_list a{
+    text-decoration: none;
+}
+.book_name{
+    margin-bottom: 0px;
+    font-size: 15px;
+    color: #2E3192;
+}
+.rating{
+    font-size: 14px;
+    color:#5C084E;
+}
+#book_price_id{
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+.quantity_remaining{
+    margin-left: 15px;
+    font-size: 13px;
+}
+.item_list .card:hover{
+    box-shadow: #2e31925e 0px 0px 20px;
+}

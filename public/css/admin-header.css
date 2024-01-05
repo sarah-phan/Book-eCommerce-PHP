@@ -1,0 +1,29 @@
+.dropdown:hover .account_menu_box{
+  display: block;
+}
+.dropdown .account_menu li {
+  list-style-type: none;
+}
+.dropdown .account_menu{
+  position: absolute;
+  background-color: white;
+  border-color: #2E3192;
+  padding-left: 0px;
+}
+.dropdown .account_menu_box{
+  background-color:transparent; 
+  border:none
+}
+.account_information_option{
+  display: flex;
+  justify-content: end;
+  margin-top: 25px;
+  padding-right: 60px;
+}
+.admin_header_container .account_button{
+  position: relative;
+}
+.admin_header_container .account_menu_box{
+  position: absolute;
+  top: 28px
+}

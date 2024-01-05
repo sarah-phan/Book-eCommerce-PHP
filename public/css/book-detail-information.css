@@ -1,0 +1,89 @@
+.main_info,
+.detail_info,
+.product_description,
+.service_guarantee,
+.add_to_cart_wrapper,
+.review_and_rating,
+.cart_header_wrapper,
+.cart_header_wrapper,
+.cart_body_wrapper,
+.shipping_information_wrapper,
+.payment_choose_wrapper,
+.total_amount_wrapper{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+.author{
+    font-size: 15px;
+}
+.author_name{
+    font-weight: 600;
+}
+.main_info h5{
+    margin-top: 0.5rem;
+}
+.rating_number, .total_number_of_comment{
+    font-size: 13px;
+}
+.rating_star, .total_number_of_comment{
+    margin-left: 5px;
+}
+.rating_star svg{
+    vertical-align: unset;
+}
+.total_number_of_comment{
+    color: gray;
+}
+.main_info h4{
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color:#2E3192;
+}
+
+.detail_info,
+.product_description,
+.service_guarantee,
+.review_and_rating,
+.payment_choose_wrapper,
+.total_amount_wrapper{
+    margin-top: 16px;
+}
+.detail_info_content p{
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+.detail_info_title, 
+.product_description_title,
+.service_guarantee_title,
+.add_to_cart_title,
+.temporary_product_price_title,
+.shipping_information_title,
+.payment_choose_title,
+.total_amount_title{
+    font-size: 18px;
+    font-weight: 600;
+}
+hr{
+    color: gainsboro;
+}
+.detail_info_label{
+    color: gray;
+}
+.product_description_read_more{
+    color: #5C084E;
+    font-weight: 600;
+}
+.product_description_read_more:hover{
+    cursor: pointer;
+}
+.service_guarantee_icon{
+    margin-right: 8px;
+    color: #2E3192;
+}
+.service_guarantee_content_1{
+    font-weight: 600;
+}
+.service_guarantee hr{
+    margin-top: 10px;
+}
