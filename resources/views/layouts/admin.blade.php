@@ -13,6 +13,8 @@
     <link href="{{ asset('css/admin-header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin-search.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin-user-main-page.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin-options.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin-edit-form.css') }}" rel="stylesheet">
 
 </head>
 
@@ -29,11 +31,18 @@
         </div>
     </div>
 
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('editButton').addEventListener('click', function() {
+            var inputs = document.querySelectorAll('.admin_edit_form .form-control'); // Select all input fields in the form
+            var button = document.getElementById('editButton');
+            inputs.forEach(function(input) {
+                input.disabled = false; // Enable each input field
+            });
+            button.textContent = "Save";
+        });
+    </script>
 </body>
 
 </html>

@@ -40,6 +40,64 @@ Route::get('/show-account-detail', function(){
     return view('auth.show-account-detail');
 });
 
+//show data list
 Route::get('/redirect/admin-user-main', function(){
-    return view('admin.admin-user-main-page');
+    return view('admin.admin-list');
+});
+
+Route::get('/redirect/admin-book-main', function(){
+    return view('admin.admin-list');
+});
+
+Route::get('/redirect/admin-order-main', function(){
+    return view('admin.admin-list');
+});
+
+Route::get('/redirect/admin-category-main', function(){
+    return view('admin.admin-list');
+});
+
+Route::get('/redirect/admin-subcategory-main', function(){
+    return view('admin.admin-list');
+});
+
+Route::get('/redirect/admin-publishing-company-main', function(){
+    return view('admin.admin-list');
+});
+
+Route::get('/redirect/admin-author-main', function(){
+    return view('admin.admin-list');
+});
+
+Route::get('/redirect/admin-review-and-rating-main', function(){
+    return view('admin.admin-list');
+});
+
+//edit data
+Route::get('/redirect/admin-user-main/edit', function(){
+    return view('admin.admin-edit');
+});
+
+Route::get('/redirect/admin-book-main/edit', function(){
+    return view('admin.admin-edit');
+});
+
+Route::get('/redirect/admin-order-main/edit', function(){
+    return view('admin.admin-edit');
+});
+
+Route::get('/redirect/admin-category-main/edit', function(){
+    return view('admin.admin-edit');
+});
+
+Route::get('/redirect/admin-subcategory-main/edit', function(){
+    return view('admin.admin-edit');
+});
+
+Route::get('/redirect/admin-publishing-company-main/edit', function(){
+    return view('admin.admin-edit');
+});
+
+Route::get('/redirect/admin-author-main/edit', function(){
+    return view('admin.admin-edit');
 });
