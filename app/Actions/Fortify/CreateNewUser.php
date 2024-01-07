@@ -35,14 +35,12 @@ class CreateNewUser implements CreatesNewUsers
             'password_confirmation' => ['required_with:password', 'same:password']
         ])->validate();
 
-        $user=[
+        return User::create([
             'user_id' => (string) Str::uuid(),
             'user_name' => $input['user_name'],
             'email' => $input['email'],
             'user_phone' => $input['user_phone'],
             'password' => Hash::make($input['password']),
-        ];
-        dd($user);
-        return User::create($user);
+        ]);
     }
 }

@@ -1,0 +1,44 @@
+.main_page_title{
+    margin-top: 40px;
+    text-align: center;
+}
+.form_container{
+    margin: auto;
+    width: 60%;
+}
+.input_container{
+    display: flex;
+    margin-top: 40px;
+}
+.input_container label{
+    width: 150px;
+    margin-top: 10px;
+}
+.input_container .form-control:focus{
+    box-shadow: 0 0 0 0.25rem #2e319236;
+    border: #2E3192;
+}
+.submit_form button{
+    background-color: #2E3192;
+    color: white;
+    border-color: #2E3192;
+    border-radius: 10px;
+    padding: 10px;
+}
+.submit_form{
+    display: flex;
+    justify-content: center;
+}
+.success_message{
+    background-color: #2e319236;
+    color: #2E3192;
+    padding: 15px;
+    margin: auto;
+    width: 60%;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+.error_display{
+    color:red;
+    margin-top: 15px;
+}
