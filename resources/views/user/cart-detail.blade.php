@@ -13,7 +13,7 @@
             <p>Subtotal</p>
         </div>
         <div class="col-1">
-            <x-trash-icon />
+            <img src="{{asset('image/icon/Trash.svg')}}" alt="Trash Icon" />
         </div>
     </div>
 </div>
@@ -46,7 +46,7 @@
             <p class="temporary_product_price"></p>
         </div>
         <div class="col-1">
-            <x-trash-icon />
+            <img src="{{asset('image/icon/Trash.svg')}}" alt="Trash Icon" />
         </div>
     </div>
     <hr />
@@ -82,7 +82,7 @@
             <p class="temporary_product_price"></p>
         </div>
         <div class="col-1">
-            <x-trash-icon />
+            <img src="{{asset('image/icon/Trash.svg')}}" alt="Trash Icon" />
         </div>
     </div>
 </div>

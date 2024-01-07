@@ -12,7 +12,7 @@ class HomeController extends Controller
         if(Auth::check()){
             $role = Auth::user()->role;
             if ($role == 'admin') {
-                return view('admin-homepage');
+                return redirect('/redirect/admin-book-main');
             } else {
                 return view('homepage');
             }

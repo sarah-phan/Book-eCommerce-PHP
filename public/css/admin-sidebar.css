@@ -3,7 +3,7 @@
 }
 .sidebar_container{
    background-color: #2e31925e;
-   height: 145vh;
+   height: 200vh;
 }
 .function_item{
   display: flex;
@@ -16,9 +16,11 @@
   margin-bottom: 18px;
   font-size: 20px;
 }
-.function_item a:hover{
+.function_item a:hover,
+.function_item a:focus{
   background-color: #2E3192;
   color: white;
+  outline: none;
 }
 .function_title{
   margin-top: 20px;
