@@ -1,6 +1,7 @@
 .main_page_title{
     margin-top: 40px;
     text-align: center;
+    margin-bottom: 35px;
 }
 .form_container{
     margin: auto;
@@ -41,4 +42,7 @@
 .error_display{
     color:red;
     margin-top: 15px;
+}
+.admin_list_table tbody:hover{
+    background-color: #2e319236;
 }

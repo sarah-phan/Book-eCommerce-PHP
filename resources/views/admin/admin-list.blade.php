@@ -1,24 +1,30 @@
 <?php
 $title = '';
-$data = [];
+$transformedData = [];
 $columns = [];
 $segment = request()->segment(2);
 switch ($segment) {
     case "admin-user-main":
         $title = "User";
-        $data = [
-            ['number' => 1, 'id' => '02', 'name' => 'Otto', 'email' => 'email', 'phone_number' => '0932621284', 'options' => function () {
-                return view('components.admin-options')->with([
-                    'getUrl' => '/redirect/admin-user-main/edit'
-                ])->render();
-            }],
-        ];
+        // dd($data);
+        $transformedData = $data->map(function ($item) {
+            // dd($item->user_phone);
+            return [
+                'id' => (string) $item->user_id,
+                'user_name' => $item->user_name,
+                'email' => $item->email,
+                'user_phone' => $item->user_phone,
+                'options' => function () use ($item) {
+                    return view('components.admin-options', ['getUrl' => '/redirect/admin-user-main/edit/' . $item->user_id])->render();
+                }
+            ];
+        });
 
         $columns = [
             'id' => 'ID',
             'user_name' => 'Full Name',
             'email' => 'Email',
-            'phone_number' => 'Phone Number',
+            'user_phone' => 'Phone Number',
             'options' => 'Options'
         ];
 
@@ -84,18 +90,14 @@ switch ($segment) {
         $title = "Book";
 
         $columns = [
-            'book_id' => 'ID',
-            'title' => 'Title',
-            'author' => 'Author',
-            'publishing_company_id' => 'Publishing Company ID',
-            'book_isbn' => 'ISBN',
-            'number_of_page' => "Number of pages",
-            'cover_type' => 'Cover type',
-            'price' => 'Price',
-            'description' => 'Description',
-            'inventory_quantity' => 'Inventory Quantity',
-            'category' => 'Category',
-            'subcategory' => 'Subcategory',
+            'order_id' => 'ID',
+            'user_id' => "User ID",
+            'shipping_id' => 'Shipping ID',
+            'order_status' => 'Order Status',
+            'order_date' => 'Order Date',
+            'transaction_id' => 'Transaction ID',
+            'payment_type' => 'Payment Type',
+            'payment_status' => 'Payment Status'
         ];
         break;
     case "admin-review-and-rating-main":
@@ -111,8 +113,8 @@ switch ($segment) {
         break;
 };
 
-?>
 
+?>
 
 @extends('layouts.admin')
 @section('content')
@@ -130,5 +132,6 @@ switch ($segment) {
         border-radius: 10px;">
     Add {{$title}}
 </a>
-<x-admin-table :rows="$data" :columns="$columns" />
+
+<x-admin-table :rows="$transformedData" :columns="$columns" />
 @endsection

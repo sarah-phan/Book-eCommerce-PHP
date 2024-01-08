@@ -38,4 +38,9 @@ class AdminController extends Controller
             ->back()
             ->with('AddSuccessMessage', 'User added successfully');
     }
+
+    public function showUserList (){
+        $data = user::all();
+        return view('admin.admin-list', compact('data'));
+    }
 }

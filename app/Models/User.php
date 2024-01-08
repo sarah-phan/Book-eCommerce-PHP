@@ -54,5 +54,7 @@ class User extends Authenticatable
 
     protected $primaryKey = 'user_id';
 
+    public $incrementing = false;
+
     public $timestamps = false;
 }

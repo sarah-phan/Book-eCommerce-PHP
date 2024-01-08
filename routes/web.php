@@ -42,9 +42,7 @@ Route::get('/show-account-detail', function(){
 });
 
 //show data list
-Route::get('/redirect/admin-user-main', function(){
-    return view('admin.admin-list');
-});
+Route::get('/redirect/admin-user-main', [AdminController::class, 'showUserList']);
 
 Route::get('/redirect/admin-shipping-information-main', function(){
     return view('admin.admin-list');
