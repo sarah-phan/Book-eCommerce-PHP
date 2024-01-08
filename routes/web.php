@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AdminPublishingInformationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -61,9 +61,7 @@ Route::get('/redirect/admin-category-main', function(){
     return view('admin.admin-list');
 });
 
-Route::get('/redirect/admin-publishing-company-main', function(){
-    return view('admin.admin-list');
-});
+Route::get('/redirect/admin-publishing-company-main', [AdminPublishingInformationController::class, 'showPublishingCompanyList']);
 
 Route::get('/redirect/admin-author-main', function(){
     return view('admin.admin-list');
@@ -94,9 +92,9 @@ Route::get('/redirect/admin-category-main/edit', function(){
     return view('admin.editFunction.admin-edit-category');
 });
 
-Route::get('/redirect/admin-publishing-company-main/edit', function(){
-    return view('admin.editFunction.admin-edit-publishing-company');
-});
+Route::get('/redirect/admin-publishing-company-main/{company_id}/edit', [AdminPublishingInformationController::class, 'getPublishingCompanyWithIdInfor']);
+Route::post('/redirect/admin-publishing-company-edit/{company_id}', [AdminPublishingInformationController::class, 'updatePublishingCompanyWithIdInfor']);
+
 
 Route::get('/redirect/admin-author-main/edit', function(){
     return view('admin.editFunction.admin-edit-author');
@@ -111,6 +109,7 @@ Route::get('/redirect/admin-user-main/add', function(){
     return view('admin.addFunction.admin-add-user');
 });
 Route::post('/admin-add-user', [UserController::class, 'addUser']);
+
 
 Route::get('/redirect/admin-shipping-information-main/add', function(){
     return view('admin.addFunction.admin-add-shipping-information');
@@ -131,6 +130,8 @@ Route::get('/redirect/admin-category-main/add', function(){
 Route::get('/redirect/admin-publishing-company-main/add', function(){
     return view('admin.addFunction.admin-add-publishing-company');
 });
+Route::post('/admin-publishing-company-user', [AdminPublishingInformationController::class, 'addShippingInformation']);
+
 
 Route::get('/redirect/admin-author-main/add', function(){
     return view('admin.addFunction.admin-add-author');
@@ -142,3 +143,4 @@ Route::get('/redirect/admin-review-and-rating-main/add', function(){
 
 //Delete data
 Route::get('/redirect/admin-user-main/{user_id}/delete', [UserController::class, 'deleteUser']);
+Route::get('/redirect/admin-publishing-company-main/{company_id}/delete', [AdminPublishingInformationController::class, 'deletePublishingCompany']);

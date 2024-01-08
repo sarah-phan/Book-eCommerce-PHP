@@ -27,6 +27,7 @@ class UserController extends Controller
 
         // Create a new user with validated data
         $data = new User;
+        dd($data);
         $data->user_id = (string) Str::uuid();
         $data->user_name = $validatedData['user_name'];
         $data->email = $validatedData['email'];

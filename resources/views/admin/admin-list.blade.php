@@ -67,13 +67,26 @@ switch ($segment) {
         ];
         break;
     case "admin-publishing-company-main":
-        $title = "Book";
+        $title = "Publishing Company";
+
+        $transformedData = $data->map(function ($item) {
+            return [
+                'company_id' => (string) $item->company_id,
+                'company_name' => $item->company_name,
+                'company_address' => $item->company_address,
+                'company_phone' => $item->company_phone,
+                'options' => function () use ($item) {
+                    return view('components.admin-options', ['getUrl' => '/redirect/admin-publishing-company-main/' . $item->company_id])->render();
+                }
+            ];
+        });
 
         $columns = [
-            'publishing_company_id' => "ID",
-            'publishing_company_name' => "Company Name",
-            'publishing_company_address' => 'Company Address',
-            'publishing_company_phone' => "Company Phone",
+            'company_id' => "ID",
+            'company_name' => "Company Name",
+            'company_address' => 'Company Address',
+            'company_phone' => "Company Phone",
+            'options' => 'Options'
         ];
         break;
     case "admin-category-main":

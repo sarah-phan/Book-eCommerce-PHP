@@ -1,9 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <h2 class="main_page_title">User - {{$user_with_id -> user_name}}</h2>
-@if(session()->has('AddSuccessMessage'))
-<p class="success_message">{{session()->get('AddSuccessMessage')}}</p>
-@endif
+
 <div class="form_container">
     <form method="post" action="{{url('/redirect/admin-user-edit', $user_with_id->user_id)}}">
         @csrf

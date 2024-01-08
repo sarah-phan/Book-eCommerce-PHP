@@ -1,4 +1,4 @@
-<table class="table table-hover admin_list_table">
+<table class="table table-hover table-responsive admin_list_table">
     <thead>
         <tr>
             @foreach ($columns as $column)
