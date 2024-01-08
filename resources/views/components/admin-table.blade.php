@@ -1,6 +1,4 @@
-<table 
-    class="table table-hover admin_list_table" 
-    style="width: auto; border-collapse: collapse; max-width: 100%; margin-top: 30px; margin-left: 20px;">
+<table class="table table-hover admin_list_table">
     <thead>
         <tr>
             @foreach ($columns as $column)

@@ -15,7 +15,7 @@ switch ($segment) {
                 'email' => $item->email,
                 'user_phone' => $item->user_phone,
                 'options' => function () use ($item) {
-                    return view('components.admin-options', ['getUrl' => '/redirect/admin-user-main/edit/' . $item->user_id])->render();
+                    return view('components.admin-options', ['getUrl' => '/redirect/admin-user-main/' . $item->user_id])->render();
                 }
             ];
         });
@@ -118,20 +118,20 @@ switch ($segment) {
 
 @extends('layouts.admin')
 @section('content')
-<h2 class="main_page_title">{{$title}}</h2>
-<x-admin-search />
-<a href="/redirect/{{$segment}}/add" class="add_data_button" style="
-        background-color:#2E3192; 
-        color:white; 
-        text-decoration:none; 
-        margin-left: 20px;
-        margin-top: 25px;
-        display: block;
-        width: fit-content;
-        padding: 12px;
-        border-radius: 10px;">
-    Add {{$title}}
-</a>
 
-<x-admin-table :rows="$transformedData" :columns="$columns" />
+<div class="main_page_container">
+    <h2 class="main_page_title">{{$title}}</h2>
+
+    @if(session()->has('message'))
+    <p class="success_message">{{session()->get('message')}}</p>
+    @endif
+
+    <x-admin-search />
+
+    <a href="/redirect/{{$segment}}/add" class="add_data_button">
+        Add {{$title}}
+    </a>
+
+    <x-admin-table :rows="$transformedData" :columns="$columns" />
+</div>
 @endsection

@@ -19,23 +19,24 @@
     box-shadow: 0 0 0 0.25rem #2e319236;
     border: #2E3192;
 }
-.submit_form button{
+.submit_form button,
+.edit_button button{
     background-color: #2E3192;
     color: white;
     border-color: #2E3192;
     border-radius: 10px;
     padding: 10px;
 }
-.submit_form{
+.submit_form,
+.edit_button{
     display: flex;
     justify-content: center;
+    margin-top: 40px;
 }
 .success_message{
     background-color: #2e319236;
-    color: #2E3192;
+    color: red;
     padding: 15px;
-    margin: auto;
-    width: 60%;
     margin-bottom: 40px;
     font-weight: bold;
 }
@@ -45,4 +46,23 @@
 }
 .admin_list_table tbody:hover{
     background-color: #2e319236;
+}
+.main_page_container{
+    margin-left: 20px;
+}
+.add_data_button{
+    background-color:#2E3192; 
+    color:white; 
+    text-decoration:none; 
+    margin-top: 25px;
+    display: block;
+    width: fit-content;
+    padding: 12px;
+    border-radius: 10px;
+}
+.admin_list_table{
+    width: auto; 
+    border-collapse: collapse;
+    max-width: 100%; 
+    margin-top: 30px; 
 }

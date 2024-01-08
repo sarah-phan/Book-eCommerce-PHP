@@ -1,9 +1,6 @@
 @extends('layouts.admin')
 @section('content')
 <h2 class="main_page_title">Add - User</h2>
-@if(session()->has('AddSuccessMessage'))
-<p class="success_message">{{session()->get('AddSuccessMessage')}}</p>
-@endif
 <div class="form_container">
     <form method="POST" action="{{url('/admin-add-user')}}">
         @csrf

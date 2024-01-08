@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,7 +43,7 @@ Route::get('/show-account-detail', function(){
 });
 
 //show data list
-Route::get('/redirect/admin-user-main', [AdminController::class, 'showUserList']);
+Route::get('/redirect/admin-user-main', [UserController::class, 'showUserList']);
 
 Route::get('/redirect/admin-shipping-information-main', function(){
     return view('admin.admin-list');
@@ -73,9 +74,9 @@ Route::get('/redirect/admin-review-and-rating-main', function(){
 });
 
 //edit data list
-Route::get('/redirect/admin-user-main/edit', function(){
-    return view('admin.editFunction.admin-edit-user');
-});
+Route::get('/redirect/admin-user-main/{user_id}/edit', [UserController::class, 'getUserWithIdInfor']);
+Route::post('/redirect/admin-user-edit/{user_id}', [UserController::class, 'updateUserWithIdInfor']);
+
 
 Route::get('/redirect/admin-shipping-information-main/edit', function(){
     return view('admin.editFunction.admin-edit-shipping-information');
@@ -109,8 +110,7 @@ Route::get('/redirect/admin-review-and-rating-main/edit', function(){
 Route::get('/redirect/admin-user-main/add', function(){
     return view('admin.addFunction.admin-add-user');
 });
-
-Route::post('/admin-add-user', [AdminController::class, 'addUser']);
+Route::post('/admin-add-user', [UserController::class, 'addUser']);
 
 Route::get('/redirect/admin-shipping-information-main/add', function(){
     return view('admin.addFunction.admin-add-shipping-information');
@@ -139,3 +139,6 @@ Route::get('/redirect/admin-author-main/add', function(){
 Route::get('/redirect/admin-review-and-rating-main/add', function(){
     return view('admin.addFunction.admin-add-review-and-rating');
 });
+
+//Delete data
+Route::get('/redirect/admin-user-main/{user_id}/delete', [UserController::class, 'deleteUser']);
