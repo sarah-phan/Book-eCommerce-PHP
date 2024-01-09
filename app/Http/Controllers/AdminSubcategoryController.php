@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
 class AdminSubcategoryController extends Controller
 {
     public function addSubcategory(Request $request){
-        // dd($request);
         $validatedData = $request->validate([
             'subcategory_name' => ['required', 'string', 'max:255'],
         ]);

@@ -110,7 +110,7 @@ switch ($segment) {
         break;
     case "admin-subcategory-main":
         $title = "Subcategory";
-        // dd($data);
+
         $transformedData = $data->map(function ($item) {
             return [
                 'category_id' => (string) $item['category_id'],

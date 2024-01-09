@@ -13,7 +13,6 @@ class AdminAuthorController extends Controller
             'author_name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
         ]);
 
-        // Create a new user with validated data
         $data = new Author;
         $data->author_id = (string) Str::uuid();
         $data->author_name = $validatedData['author_name'];

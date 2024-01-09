@@ -10,7 +10,6 @@ class AdminCategoryController extends Controller
 {
     public function addCategory(Request $request)
     {
-        // dd($request);
         $validatedData = $request->validate([
             'category_name' => ['required', 'string', 'max:255'],
         ]);

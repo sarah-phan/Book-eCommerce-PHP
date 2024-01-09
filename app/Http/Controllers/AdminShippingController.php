@@ -20,7 +20,6 @@ class AdminShippingController extends Controller
             'receiver_phone' => ['required', 'regex:/^(0|\+84)(3|5|7|8|9)\d{8}$/'],
         ]);
 
-        // Create a new user with validated data
         $data = new ShippingInformation();
         $data->shipping_information_id = (string) Str::uuid();
         $data->receiver_name = $validatedData['receiver_name'];
