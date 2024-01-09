@@ -66,3 +66,10 @@
     max-width: 100%; 
     margin-top: 30px; 
 }
+.add_data_button_container{
+    display: flex;
+}
+.form_container .form-check-input:checked {
+    background-color: #2E3192;
+    border-color: #2e319236;
+}

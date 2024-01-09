@@ -77,6 +77,52 @@ switch ($segment) {
             'options' => 'Options'
         ];
         break;
+
+    case "admin-category-main":
+        $title = "Category";
+
+        $transformedData = $data->map(function ($item) {
+            return [
+                'category_id' => (string) $item->category_id,
+                'category_name' => $item->category_name,
+                'options' => function () use ($item) {
+                    return view('components.admin-options', ['getUrl' => '/redirect/admin-category-main/' . $item->category_id])->render();
+                }
+            ];
+        });
+
+        $columns = [
+            'category_id' => "ID",
+            'category_name' => "Category Name",
+            'options' => 'Options'
+        ];
+
+        break;
+    case "admin-subcategory-main":
+        $title = "Subcategory";
+        // dd($data);
+        $transformedData = $data->map(function ($item) {
+            return [
+                'category_id' => (string) $item['category_id'],
+                'category_name' => $item['category_name'],
+                'subcategory_id' => $item['subcategory_id'],
+                'subcategory_name' => $item['subcategory_name'],
+                'options' => function () use ($item) {
+                    return view('components.admin-options', ['getUrl' => '/redirect/admin-subcategory-main/' . $item['subcategory_id']])->render();
+                }
+            ];
+        });
+
+        $columns = [
+            'category_id' => "Category ID",
+            'category_name' => "Category Name",
+            'subcategory_id' => "Subcategory ID",
+            'subcategory_name' => 'Subcategory Name',
+            'options' => 'Options'
+        ];
+
+        break;
+
     case "admin-publishing-company-main":
         $title = "Publishing Company";
 
@@ -98,16 +144,6 @@ switch ($segment) {
             'company_address' => 'Company Address',
             'company_phone' => "Company Phone",
             'options' => 'Options'
-        ];
-        break;
-    case "admin-category-main":
-        $title = "Book";
-
-        $columns = [
-            'category_id' => "Category ID",
-            'category_name' => "Category Name",
-            'subcategory_id' => 'Subcategory ID',
-            'subcategory_name' => "Subcategory Name",
         ];
         break;
     case "admin-order-main":

@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 @section('content')
-<h2 class="main_page_title">Add - Author</h2>
+<h2 class="main_page_title">Add - Category</h2>
 <div class="form_container">
-    <form method="POST" action="{{url('/redirect/admin-author')}}">
+    <form method="POST" action="{{url('/redirect/admin-add-category')}}">
         @csrf
         
         <div class="input_container">
-            <label for="author_name" class="form-label">Author Name</label>
-            <input type="text" class="form-control" id="author_name" name="author_name">
+            <label for="category_name" class="form-label">Catogory Name</label>
+            <input type="text" class="form-control" id="category_name" name="category_name">
         </div>
-        @error('author_name')
+        @error('category_name')
         <div class="error_display">{{ $message }}</div>
         @enderror
         

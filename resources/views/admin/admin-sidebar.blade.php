@@ -8,8 +8,8 @@
             <a href="/redirect/admin-user-main">User</a>
             <a href="/redirect/admin-book-main">Book</a>
             <a href="/redirect/admin-order-main">Order</a>
-            <a href="/redirect/admin-category-main">Book Category</a>
-            <a href="/redirect/admin-subcategory-main">Book Subcategory</a>
+            <a href="/redirect/admin-category-main">Category</a>
+            <a href="/redirect/admin-subcategory-main">Subcategory</a>
             <a href="/redirect/admin-publishing-company-main">Publishing company</a>
             <a href="/redirect/admin-author-main">Author</a>
             <a href="/redirect/admin-review-and-rating-main">Review and rating</a>
