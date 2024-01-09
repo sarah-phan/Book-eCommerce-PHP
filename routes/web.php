@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAuthorController;
 use App\Http\Controllers\AdminPublishingInformationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -63,9 +64,7 @@ Route::get('/redirect/admin-category-main', function(){
 
 Route::get('/redirect/admin-publishing-company-main', [AdminPublishingInformationController::class, 'showPublishingCompanyList']);
 
-Route::get('/redirect/admin-author-main', function(){
-    return view('admin.admin-list');
-});
+Route::get('/redirect/admin-author-main', [AdminAuthorController::class, 'showAuthorList']);
 
 Route::get('/redirect/admin-review-and-rating-main', function(){
     return view('admin.admin-list');
@@ -96,9 +95,8 @@ Route::get('/redirect/admin-publishing-company-main/{company_id}/edit', [AdminPu
 Route::post('/redirect/admin-publishing-company-edit/{company_id}', [AdminPublishingInformationController::class, 'updatePublishingCompanyWithIdInfor']);
 
 
-Route::get('/redirect/admin-author-main/edit', function(){
-    return view('admin.editFunction.admin-edit-author');
-});
+Route::get('/redirect/admin-author-main/{author_id}/edit', [AdminAuthorController::class, 'getAuthorWithIdInfor']);
+Route::post('/redirect/admin-author-edit/{author_id}', [AdminAuthorController::class, 'updateAuthorWithIdInfor']);
 
 Route::get('/redirect/admin-review-and-rating-main/edit', function(){
     return view('admin.editFunction.admin-edit-review-and-rating');
@@ -130,12 +128,13 @@ Route::get('/redirect/admin-category-main/add', function(){
 Route::get('/redirect/admin-publishing-company-main/add', function(){
     return view('admin.addFunction.admin-add-publishing-company');
 });
-Route::post('/admin-publishing-company-user', [AdminPublishingInformationController::class, 'addShippingInformation']);
+Route::post('/admin-publishing-company', [AdminPublishingInformationController::class, 'addShippingInformation']);
 
 
 Route::get('/redirect/admin-author-main/add', function(){
     return view('admin.addFunction.admin-add-author');
 });
+Route::post('/admin-author', [AdminAuthorController::class, 'addAuthor']);
 
 Route::get('/redirect/admin-review-and-rating-main/add', function(){
     return view('admin.addFunction.admin-add-review-and-rating');
@@ -144,3 +143,4 @@ Route::get('/redirect/admin-review-and-rating-main/add', function(){
 //Delete data
 Route::get('/redirect/admin-user-main/{user_id}/delete', [UserController::class, 'deleteUser']);
 Route::get('/redirect/admin-publishing-company-main/{company_id}/delete', [AdminPublishingInformationController::class, 'deletePublishingCompany']);
+Route::get('/redirect/admin-author-main/{author_id}/delete', [AdminAuthorController::class, 'deleteAuthor']);

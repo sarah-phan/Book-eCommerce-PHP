@@ -2,7 +2,7 @@
 @section('content')
 <h2 class="main_page_title">Add - Publishing Company</h2>
 <div class="form_container">
-    <form method="POST" action="{{url('/admin-publishing-company-user')}}">
+    <form method="POST" action="{{url('/admin-publishing-company')}}">
         @csrf
         
         <div class="input_container">

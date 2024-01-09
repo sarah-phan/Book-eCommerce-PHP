@@ -61,9 +61,20 @@ switch ($segment) {
     case "admin-author-main":
         $title = "Author";
 
+        $transformedData = $data->map(function ($item) {
+            return [
+                'author_id' => (string) $item->author_id,
+                'author_name' => $item->author_name,
+                'options' => function () use ($item) {
+                    return view('components.admin-options', ['getUrl' => '/redirect/admin-author-main/' . $item->author_id])->render();
+                }
+            ];
+        });
+
         $columns = [
             'author_id' => "ID",
             'author_name' => "Author Name",
+            'options' => 'Options'
         ];
         break;
     case "admin-publishing-company-main":

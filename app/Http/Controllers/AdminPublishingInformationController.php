@@ -11,8 +11,8 @@ class AdminPublishingInformationController extends Controller
 {
     public function addShippingInformation(Request $request){
         $validatedData = $request->validate([
-            'company_name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
-            'company_address' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
+            'company_name' => ['required', 'string', 'max:255'],
+            'company_address' => ['required', 'string', 'max:255'],
             'company_phone' => ['required'],
         ]);
 
@@ -33,19 +33,19 @@ class AdminPublishingInformationController extends Controller
         return view('admin.admin-list', compact('data'));
     }
 
-    public function getPublishingCompanyWithIdInfor($user_id){
-        $company_with_id = PublishingCompany::find($user_id);
+    public function getPublishingCompanyWithIdInfor($company_id){
+        $company_with_id = PublishingCompany::find($company_id);
         return view('admin.editFunction.admin-edit-publishing-company', compact('company_with_id'));
     }
 
-    public function updatePublishingCompanyWithIdInfor(Request $request, $user_id){
+    public function updatePublishingCompanyWithIdInfor(Request $request, $company_id){
         $validatedData = $request->validate([
             'company_name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
             'company_address' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
             'company_phone' => ['required'],
         ]);
 
-        $company_with_id = PublishingCompany::find($user_id);
+        $company_with_id = PublishingCompany::find($company_id);
         $company_with_id->company_name = $validatedData['company_name'];
         $company_with_id->company_address = $validatedData['company_address'];
         $company_with_id->company_phone = $validatedData['company_phone'];
