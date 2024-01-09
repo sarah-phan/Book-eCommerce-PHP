@@ -16,7 +16,6 @@ class AdminPublishingInformationController extends Controller
             'company_phone' => ['required'],
         ]);
 
-        // Create a new user with validated data
         $data = new PublishingCompany;
         $data->company_id = (string) Str::uuid();
         $data->company_name = $validatedData['company_name'];

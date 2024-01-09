@@ -52,6 +52,10 @@ class User extends Authenticatable
 
     protected $table = 'user';
 
+    public function shipping_information(){
+        return $this->hasMany(ShippingInformation::class, 'user_id');
+    }
+
     protected $primaryKey = 'user_id';
 
     public $incrementing = false;

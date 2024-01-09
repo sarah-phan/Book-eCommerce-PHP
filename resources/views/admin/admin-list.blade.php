@@ -32,9 +32,19 @@ switch ($segment) {
     case "admin-shipping-information-main":
         $title = "Shipping information";
 
+        $transformedData = $data->map(function ($item) {
+            return [
+                'shipping_information_id' => (string) $item['shipping_information_id'],
+                'user_name' => $item['user_name'],
+                'receiver_name' => $item['receiver_name'],
+                'receiver_phone' => $item['receiver_phone'],
+                'address' => $item['address'],
+            ];
+        });
+        
         $columns = [
             'shipping_information_id' => 'ID',
-            'user_id' => 'User ID',
+            'user_name' => 'User Name',
             'receiver_name' => 'Receiver name',
             'receiver_phone' => 'Receiver phone',
             'address' => "Address",

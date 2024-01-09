@@ -12,6 +12,7 @@
             <a href="/redirect/admin-subcategory-main">Subcategory</a>
             <a href="/redirect/admin-publishing-company-main">Publishing company</a>
             <a href="/redirect/admin-author-main">Author</a>
+            <a href="/redirect/admin-shipping-information-main">Shipping Information</a>
             <a href="/redirect/admin-review-and-rating-main">Review and rating</a>
         </div>
     </div>
