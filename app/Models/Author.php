@@ -16,6 +16,10 @@ class Author extends Model
 
     protected $table = 'author';
 
+    public function book(){
+        return $this->belongsToMany(Book::class, 'author_book', 'author_id', 'book_id');
+    }
+
     protected $primaryKey = 'author_id';
 
     public $incrementing = false;

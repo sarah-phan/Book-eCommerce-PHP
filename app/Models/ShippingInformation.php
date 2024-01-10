@@ -20,7 +20,7 @@ class ShippingInformation extends Model
     protected $table = 'shipping_information';
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     protected $primaryKey = 'shipping_information_id';

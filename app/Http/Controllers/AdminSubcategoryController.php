@@ -26,17 +26,15 @@ class AdminSubcategoryController extends Controller
 
     public function showSubcategoryList()
     {
-        $categories = Category::with('subcategory_table')->get();
+        $subcategory = SubCategory::with('category')->get();
 
-        $data = $categories->flatMap(function ($category) {
-            return $category->subcategory_table->map(function ($subcategory) use ($category) {
-                return [
-                    'category_id' => $category->category_id,
-                    'category_name' => $category->category_name,
-                    'subcategory_id' => $subcategory->subcategory_id,
-                    'subcategory_name' => $subcategory->subcategory_name,
-                ];
-            });
+        $data = $subcategory->map(function($subcategory){
+            return[
+                'subcategory_id'=>$subcategory->subcategory_id,
+                'subcategory_name'=>$subcategory->subcategory_name,
+                'category_id'=>$subcategory->category->category_id,
+                'category_name'=>$subcategory->category->category_name
+            ];
         });
         return view('admin.admin-list', compact('data'));
     }
@@ -46,7 +44,6 @@ class AdminSubcategoryController extends Controller
         $data = Category::all();
         return view('admin.addFunction.admin-add-subcategory', compact('data'));
     }
-
 
     public function getSubCategoryWithIdInfor($subcategory_id){
         $subcategory_with_id = SubCategory::find($subcategory_id);

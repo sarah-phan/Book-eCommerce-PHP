@@ -18,6 +18,10 @@ class PublishingCompany extends Model
 
     protected $table = 'publishing_company';
 
+    public function book(){
+        return $this->hasMany(Book::class, 'company_id');
+    }
+
     protected $primaryKey = 'company_id';
 
     public $incrementing = false;

@@ -9,11 +9,13 @@ use Illuminate\Support\Str;
 
 class AdminShippingController extends Controller
 {
-    public function getUserList(){
+    public function getUserList()
+    {
         $userData = User::all();
         return view('admin.addFunction.admin-add-shipping', compact('userData'));
     }
-    public function addShippingInfor(Request $request){
+    public function addShippingInfor(Request $request)
+    {
         $validatedData = $request->validate([
             'receiver_name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
             'address' => ['required', 'string', 'max:255'],
@@ -32,19 +34,31 @@ class AdminShippingController extends Controller
             ->with('message', 'Add successfully');
     }
 
-    public function showShippingList(){
-        $user = User::with('shipping_information')->get();
+    public function showShippingList()
+    {
+        // $user = User::with('shipping_information')->get();
 
-        $data = $user->flatMap(function ($user) {
-            return $user->shipping_information->map(function ($shipping_information) use ($user) {
-                return [
-                    'shipping_information_id' => $shipping_information->shipping_information_id,
-                    'receiver_name' => $shipping_information->receiver_name,
-                    'receiver_phone' => $shipping_information->receiver_phone,
-                    'address' => $shipping_information->address,
-                    'user_name' => $user->user_name,
-                ];
-            });
+        // $data = $user->flatMap(function ($user) {
+        //     return $user->shipping_information->map(function ($shipping_information) use ($user) {
+        //         return [
+        //             'shipping_information_id' => $shipping_information->shipping_information_id,
+        //             'receiver_name' => $shipping_information->receiver_name,
+        //             'receiver_phone' => $shipping_information->receiver_phone,
+        //             'address' => $shipping_information->address,
+        //             'user_name' => $user->user_name,
+        //         ];
+        //     });
+        // });
+
+        $shipping = ShippingInformation::with('user')->get();
+        $data = $shipping->map(function ($shipping) {
+            return [
+                'shipping_information_id' => $shipping->shipping_information_id,
+                'receiver_name' => $shipping->receiver_name,
+                'receiver_phone' => $shipping->receiver_phone,
+                'address' => $shipping->address,
+                'user_name' => $shipping->user->user_name,
+            ];
         });
         return view('admin.admin-list', compact('data'));
     }

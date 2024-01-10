@@ -41,7 +41,7 @@ switch ($segment) {
                 'address' => $item['address'],
             ];
         });
-        
+
         $columns = [
             'shipping_information_id' => 'ID',
             'user_name' => 'User Name',
@@ -53,19 +53,38 @@ switch ($segment) {
     case "admin-book-main":
         $title = "Book";
 
+        $transformedData = $data->map(function ($item) {
+            return [
+                'book_id' => $item['book_id'],
+                'title' => $item['title'],
+                'author' => $item['author_name'],
+                'publishing_company_name' => $item['publishing_company_name'],
+                'book_isbn' => $item['book_isbn'],
+                'number_of_page' => $item['number_of_page'],
+                'cover_type' => $item['cover_type'],
+                'price' => $item['price'],
+                'inventory_quantity' => $item['inventory_quantity'],
+                'category' => $item['category'],
+                'subcategory' => $item['subcategory'],
+                'options' => function () use ($item) {
+                    return view('components.admin-options', ['getUrl' => '/redirect/admin-book-main/' . $item['book_id']])->render();
+                }
+            ];
+        });
+
         $columns = [
             'book_id' => 'ID',
             'title' => 'Title',
             'author' => 'Author',
-            'publishing_company_id' => 'Publishing Company ID',
-            'book_isbn' => 'ISBN',
+            'publishing_company_name' => 'Publishing Company Name',
+            'book_isbn' => 'ISBN-13',
             'number_of_page' => "Number of pages",
             'cover_type' => 'Cover type',
             'price' => 'Price',
-            'description' => 'Description',
             'inventory_quantity' => 'Inventory Quantity',
             'category' => 'Category',
             'subcategory' => 'Subcategory',
+            'options' => 'Options'
         ];
         break;
     case "admin-author-main":
@@ -182,8 +201,6 @@ switch ($segment) {
         ];
         break;
 };
-
-
 ?>
 
 @extends('layouts.admin')

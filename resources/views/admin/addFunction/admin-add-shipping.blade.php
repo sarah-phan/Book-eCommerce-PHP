@@ -8,6 +8,7 @@
         <div class="input_container">
             <label class="form-label">Choose user</label>
             <select class="form-select" aria-label="Default select example" name="user_id">
+                <option value="">Select a user</option>
                 @foreach($userData as $data)
                 <option value="{{$data->user_id}}">{{$data->user_name}}</option>
                 @endforeach

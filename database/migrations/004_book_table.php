@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('cover_type');
             $table->integer('inventory_quantity');
             $table->double('price');
-            $table->string('description');
+            $table->string('description', 1000);
 
             $table->foreign('company_id')->references('company_id')->on('publishing_company');
         });

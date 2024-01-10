@@ -20,6 +20,10 @@ class Category extends Model
         return $this->hasMany(SubCategory::class, 'category_id');
     }
 
+    public function book(){
+        return $this->belongsToMany(Book::class, 'book_category', 'category_id', 'book_id');
+    }
+
     protected $primaryKey = 'category_id';
 
     public $incrementing = false;

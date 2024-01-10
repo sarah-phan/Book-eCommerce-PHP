@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminAuthorController;
+use App\Http\Controllers\AdminBookController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminPublishingInformationController;
 use App\Http\Controllers\AdminShippingController;
@@ -51,9 +52,7 @@ Route::get('/redirect/admin-user-main', [UserController::class, 'showUserList'])
 
 Route::get('/redirect/admin-shipping-information-main', [AdminShippingController::class, 'showShippingList']);
 
-Route::get('/redirect/admin-book-main', function () {
-    return view('admin.admin-list');
-});
+Route::get('/redirect/admin-book-main', [AdminBookController::class, 'showBookList']);
 
 Route::get('/redirect/admin-order-main', function () {
     return view('admin.admin-list');
@@ -80,9 +79,9 @@ Route::get('/redirect/admin-shipping-information-main/edit', [AdminShippingContr
 Route::post('/redirect/admin-shipping-information-edit/{shipping_id}', [UserController::class, 'updateShippingWithIdInfor']);
 
 
-Route::get('/redirect/admin-book-main/edit', function () {
-    return view('admin.editFunction.admin-edit-book');
-});
+Route::get('/redirect/admin-book-main/{book_id}/edit', [AdminBookController::class, 'getBookWithId']);
+Route::post('/redirect/admin-book-edit/{book_id}', [AdminBookController::class, 'updateBookWithId']);
+
 
 Route::get('/redirect/admin-order-main/edit', function () {
     return view('admin.editFunction.admin-edit-order');
@@ -115,9 +114,9 @@ Route::get('/redirect/admin-shipping-information-main/add', [AdminShippingContro
 Route::post('/redirect/admin-add-shipping-information', [AdminShippingController::class, 'addShippingInfor']);
 
 
-Route::get('/redirect/admin-book-main/add', function () {
-    return view('admin.addFunction.admin-add-book');
-});
+Route::get('/redirect/admin-book-main/add', [AdminBookController::class, 'showAdditionalData']);
+Route::post('redirect/admin-add-book', [AdminBookController::class, 'addBook']);
+
 
 Route::get('/redirect/admin-order-main/add', function () {
     return view('admin.addFunction.admin-add-order');
@@ -155,3 +154,4 @@ Route::get('/redirect/admin-publishing-company-main/{company_id}/delete', [Admin
 Route::get('/redirect/admin-author-main/{author_id}/delete', [AdminAuthorController::class, 'deleteAuthor']);
 Route::get('/redirect/admin-subcategory-main/{subcategory_id}/delete', [AdminSubcategoryController::class, 'deleteSubcategory']);
 Route::get('/redirect/admin-category-main/{category_id}/delete', [AdminCategoryController::class, 'deleteCategory']);
+Route::get('/redirect/admin-book-main/{book_id}/delete', [AdminBookController::class, 'deleteBook']);

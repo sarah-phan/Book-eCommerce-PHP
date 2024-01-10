@@ -18,7 +18,11 @@ class SubCategory extends Model
     protected $table = 'subcategory_table';
 
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function book(){
+        return $this->belongsToMany(Book::class, 'subcategory_book', 'subcategory_id', 'book_id');
     }
 
     protected $primaryKey = 'subcategory_id';
