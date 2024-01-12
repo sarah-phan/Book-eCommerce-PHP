@@ -12,18 +12,22 @@
 }
 .dropdown .account_menu_box{
   background-color:transparent; 
-  border:none
+  border:none;
+  height: 45px;
 }
 .account_information_option{
+  position: relative;
   display: flex;
   justify-content: end;
   margin-top: 25px;
   padding-right: 60px;
 }
-.admin_header_container .account_button{
-  position: relative;
-}
-.admin_header_container .account_menu_box{
+.admin_header_container .account_menu{
   position: absolute;
-  top: 28px
+  top: 35px;
+  left: 15px;
+}
+.account_menu_box .dropdown-item:hover{
+  background-color: #2E3192;
+  color: white;
 }
