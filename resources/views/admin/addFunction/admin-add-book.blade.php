@@ -2,7 +2,7 @@
 @section('content')
 <h2 class="main_page_title">Add - Book</h2>
 <div class="form_container">
-    <form method="POST" action="{{url('/redirect/admin-add-book')}}">
+    <form enctype="multipart/form-data" method="POST" action="{{url('/redirect/admin-add-book')}}">
         @csrf
 
         <div class="input_container">
@@ -26,6 +26,9 @@
                 @endforeach
             </div>
         </div>
+        @error('author_id')
+        <div class="error_display">{{ $message }}</div>
+        @enderror
 
         <div class="input_container">
             <label class="form-label" style='width:230px'>Publishing Company</label>
@@ -36,6 +39,9 @@
                 @endforeach
             </select>
         </div>
+        @error('company_id')
+        <div class="error_display">{{ $message }}</div>
+        @enderror
 
         <div class="input_container">
             <label for="ISBN" class="form-label" style='width:230px'>ISBN-13</label>
@@ -76,6 +82,9 @@
                 </div>
             </div>
         </div>
+        @error('cover_type')
+        <div class="error_display">{{ $message }}</div>
+        @enderror
 
         <div class="input_container">
             <label for="price" class="form-label" style='width:230px'>Price</label>
@@ -114,6 +123,9 @@
                 @endforeach
             </div>
         </div>
+        @error('category_id')
+        <div class="error_display">{{ $message }}</div>
+        @enderror
 
         <div class="input_container">
             <p class="category_label">Subcategory</p>
@@ -128,14 +140,45 @@
                 @endforeach
             </div>
         </div>
+        @error('subcategory_id')
+        <div class="error_display">{{ $message }}</div>
+        @enderror
 
-        <div class="input_container">
-            <input type="file" name="profile_picture">
+        <div class="input_container book_upload_button">
+            <label style='width:178px'>Upload image file</label>
+            <input type="file" name="book_image_path" id="image_input">
+            <img id="image_preview" src="#" alt="Image Preview">
         </div>
+        @error('book_image_path')
+        <div class="error_display">{{ $message }}</div>
+        @enderror
 
         <div class="submit_form" style="margin-bottom:40px">
             <button type="submit">Submit</button>
         </div>
     </form>
 </div>
+
+<script>
+    const imageInput = document.getElementById('image_input');
+    const imagePreview = document.getElementById('image_preview');
+
+    imageInput.addEventListener('change', function() {
+        const file = this.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            imagePreview.src = '#';
+            imagePreview.style.display = 'none';
+        }
+    });
+</script>
 @endsection

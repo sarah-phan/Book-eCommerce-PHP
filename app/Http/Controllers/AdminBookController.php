@@ -36,7 +36,13 @@ class AdminBookController extends Controller
             'page_number' => ['required'],
             'price' => ['required'],
             'inventory_quantity' => ['required'],
-            'description' => ['required', 'image', 'max:2048']
+            'description' => ['required', 'max:1000', 'string'],
+            'book_image_path'=>['required','image', 'mimes: jpeg,png,jpg,gif'],
+            'author_id' => ['required'],
+            'company_id' => ['required'],
+            'cover_type' => ['required'],
+            'category_id' => ['required'],
+            'subcategory_id' => ['required']
         ]);
 
         $bookData = new Book();
@@ -49,6 +55,17 @@ class AdminBookController extends Controller
         $bookData->price = $validatedData['price'];
         $bookData->description = $validatedData['description'];
         $bookData->inventory_quantity = $validatedData['inventory_quantity'];
+
+        if ($request->has('book_image_path')) {
+            $image = $request->file('book_image_path');
+            $originalFileName = $image->getClientOriginalName(); // Get the original file name
+            // Generate a unique file name (e.g., to prevent overwriting existing files)
+            $imageName = time() . '_' . str_replace(' ', '_', $originalFileName);
+            $image->storeAs('public/image/bookImage', $imageName);
+            // Update the book_image_path column with the stored file path
+            $bookData->book_image_path = 'image/bookImage/' . $imageName;
+        }
+
         $bookData->save();
 
         //Inside each foreach loop, every ID from the arrays is attached individually to the Book instance ($bookData).
@@ -114,8 +131,6 @@ class AdminBookController extends Controller
 
     public function updateBookWithId(Request $request, $book_id)
     {
-
-
         $validatedData = $request->validate([
             'title' =>  ['required', 'string', 'max:255'],
             'ISBN' => ['required', 'string', 'max:255', 'regex:/^(978|979)[\-]?\d[\-]?\d{2}[\-]?\d{6}[\-]?\d$/'],
