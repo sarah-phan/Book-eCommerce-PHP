@@ -88,3 +88,24 @@
 .category_checkbox_container .form-check{
     margin-bottom: 10px;
 }
+.book_upload_button img{
+    display: none; 
+    max-width: 100px; 
+    max-height: 100px;
+}
+.book_upload_button input{
+    margin-top: 7px;
+}
+.book_image{
+    width: 115%;
+    margin-top: 30%;
+}
+.form_container_for_book{
+    margin: 0px 10%;
+}
+.book_image_alert{
+    margin-top: 30%;
+    background-color: #2E3192;
+    color: white;
+    text-align: center;
+}

@@ -129,7 +129,11 @@
             </div>
         </div>
 
-        <div class="submit_form">
+        <div class="input_container">
+            <input type="file" name="profile_picture">
+        </div>
+
+        <div class="submit_form" style="margin-bottom:40px">
             <button type="submit">Submit</button>
         </div>
     </form>

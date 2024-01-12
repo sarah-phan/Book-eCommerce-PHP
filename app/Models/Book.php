@@ -18,7 +18,8 @@ class Book extends Model
         'cover_type',
         'inventory_quantity',
         'price',
-        'description'
+        'description',
+        'book_image_path'
     ];
 
     protected $table = 'book';

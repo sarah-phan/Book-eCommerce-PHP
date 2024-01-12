@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('inventory_quantity');
             $table->double('price');
             $table->string('description', 1000);
+            $table->string('book_image_path');
 
             $table->foreign('company_id')->references('company_id')->on('publishing_company');
         });
