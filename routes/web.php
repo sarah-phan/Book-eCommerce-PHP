@@ -65,10 +65,6 @@ Route::get('/redirect/admin-publishing-company-main', [AdminPublishingInformatio
 
 Route::get('/redirect/admin-author-main', [AdminAuthorController::class, 'showAuthorList']);
 
-Route::get('/redirect/admin-review-and-rating-main', function () {
-    return view('admin.admin-list');
-});
-
 //edit data list
 Route::get('/redirect/admin-user-main/{user_id}/edit', [UserController::class, 'getUserWithIdInfor']);
 Route::post('/redirect/admin-user-edit/{user_id}', [UserController::class, 'updateUserWithIdInfor']);
@@ -83,6 +79,8 @@ Route::post('/redirect/admin-book-edit/{book_id}', [AdminBookController::class, 
 
 
 Route::get('/redirect/admin-order-main/detail/{order_id}', [AdminOrderController::class, 'getOrderById']);
+Route::get("/redirect/admin-order-main/detail/edit/{order_id}", [AdminOrderController::class, 'getOrderStatus']);
+Route::post("/redirect/admin-order-edit/{order_id}", [AdminOrderController::class, 'updateOrderStatus']);
 
 
 Route::get('/redirect/admin-subcategory-main/{subcategory_id}/edit', [AdminSubcategoryController::class, 'getSubCategoryWithIdInfor']);
@@ -95,10 +93,6 @@ Route::post('/redirect/admin-publishing-company-edit/{company_id}', [AdminPublis
 
 Route::get('/redirect/admin-author-main/{author_id}/edit', [AdminAuthorController::class, 'getAuthorWithIdInfor']);
 Route::post('/redirect/admin-author-edit/{author_id}', [AdminAuthorController::class, 'updateAuthorWithIdInfor']);
-
-Route::get('/redirect/admin-review-and-rating-main/edit', function () {
-    return view('admin.editFunction.admin-edit-review-and-rating');
-});
 
 //Add data
 Route::get('/redirect/admin-user-main/add', function () {
@@ -139,11 +133,6 @@ Route::get('/redirect/admin-author-main/add', function () {
     return view('admin.addFunction.admin-add-author');
 });
 Route::post('/redirect/admin-author', [AdminAuthorController::class, 'addAuthor']);
-
-
-Route::get('/redirect/admin-review-and-rating-main/add', function () {
-    return view('admin.addFunction.admin-add-review-and-rating');
-});
 
 //Delete data
 Route::get('/redirect/admin-user-main/{user_id}/delete', [UserController::class, 'deleteUser']);

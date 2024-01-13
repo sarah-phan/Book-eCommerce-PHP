@@ -31,7 +31,14 @@ class Order extends Model
 
     public function book()
     {
-        return $this->belongsToMany(Book::class, 'order_item', 'order_id', 'book_id');
+        return $this
+            ->belongsToMany(Book::class, 'order_item', 'order_id', 'book_id')
+            ->withPivot('quantity');
+    }
+
+    public function transaction()
+    {
+        return $this->hasOne(Transaction::class, 'order_id');
     }
 
     protected $primaryKey = 'order_id';

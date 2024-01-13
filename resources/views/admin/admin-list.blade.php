@@ -189,17 +189,6 @@ switch ($segment) {
             'payment_status' => 'Payment Status'
         ];
         break;
-    case "admin-review-and-rating-main":
-        $title = "Review and Rating";
-
-        $columns = [
-            'review_and_rating_id' => 'ID',
-            'user_id' => 'User ID',
-            'book_id' => 'Book ID',
-            'rating' => 'Rating',
-            'review_content' => "Review Content",
-        ];
-        break;
 };
 ?>
 

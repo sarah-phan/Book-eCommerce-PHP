@@ -17,7 +17,8 @@ return new class extends Migration
             $table->uuid('order_id');
             $table->string('payment_type');
             $table->string('payment_status');
-            $table->uuid('strip_id');
+            $table->uuid('strip_id')->nullable();
+            $table->timestamps();
 
             $table->foreign('order_id')->references('order_id')->on('order');
         });

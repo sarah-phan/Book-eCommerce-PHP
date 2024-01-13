@@ -30,6 +30,19 @@ class AdminOrderController extends Controller
     }
 
     public function getOrderById($order_id){
-        return view('admin.admin-order-detail');
+        $data = Order::with('book', 'shipping_information', 'transaction')->find($order_id);
+        return view('admin.admin-order-detail', compact('data'));
+    }
+
+    public function getOrderStatus($order_id){
+        $data = Order::find($order_id);
+        return view('admin.editFunction.admin-edit-order', compact('data'));
+    }
+
+    public function updateOrderStatus($order_id, Request $request){
+        $data = Order::find($order_id);
+        $data->order_status = $request->order_status;
+        $data->save();
+        return redirect('/redirect/admin-order-main')->with('message', 'Edit successfully');
     }
 }

@@ -50,8 +50,61 @@
     text-decoration: none;
     color: white;
     background-color: #2E3192;
-    /* border: 2px solid #2E3192; */
     padding: 13px;
     border-radius: 10px;
 }
+.order_detail_shipping_information_box,
+.order_detail_order_status_box,
+.order_detail_payment_type_box{
+    background-color: rgb(245,245,250);
+    height: 130px;
+    padding-top: 12px;
+    padding-left: 15px;
+}
+.order_detail_span_lable{
+    color: gray;
+}
+.order_detail_shipping_information_box{
+    display: flex;
+    flex-direction: column;
+}
+.order_detail_content_container{
+    margin-bottom: 10px;
+}
+.order_detail_header{
+    margin-top: 60px;
+    margin-bottom: 45px;
+    font-weight: 600;
+}
+.order_detail_body{
+    background-color: rgb(245,245,250);
+    padding: 30px
 
+}
+.order_detail_body th{
+    padding-bottom: 20px;
+}
+.order_detail_container{
+    margin-right: 25px;
+}
+.order_detail_book_detail{
+    display: flex;
+}
+.order_detail_body tr{
+    border-bottom: 2px solid gainsboro
+}
+.order_detail_body td{
+    margin: 25px 0
+}
+.order_detail_book_detail_p{
+    margin-bottom: 5px;
+}
+.order_detail_book_detail_container{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+.order_detail_total_price{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
