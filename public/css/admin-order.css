@@ -1,0 +1,57 @@
+.book_image_order{
+    width: 75px;
+}
+.order_box_container{
+    background-color: rgb(245,245,250);
+    margin: 30px;
+    padding: 25px;
+    margin-right:65px;
+}
+.book_unit_price{
+    text-align: right;
+}
+.order_box_container hr{
+    color:#2E3192
+}
+.order_header span:first-child{
+    display: inline-block;
+    width: 85px;
+}
+.order_header span:last-child{
+    display: inline-block;
+    text-align: left;
+}
+.order_header .order_id,
+.order_header .user_id{
+    margin-bottom: 10px;
+}
+.book_id_p{
+    font-size: 12px;
+    color: gray
+}
+.total_price_order,
+.direct_button_detail{
+    display: flex;
+    justify-content: flex-end;
+}
+.order_footer_unit_price{
+    margin-left: 10px;
+    color: #2E3192;
+    font-size: 25px;
+}
+.order_footer_label{
+    color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.direct_button_detail a{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #2E3192;
+    /* border: 2px solid #2E3192; */
+    padding: 13px;
+    border-radius: 10px;
+}
+

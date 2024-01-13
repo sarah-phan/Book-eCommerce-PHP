@@ -148,7 +148,6 @@
                 <div class="error_display">{{ $message }}</div>
                 @enderror
 
-
                 <div class="submit_form">
                     <button type="submit">Save</button>
                 </div>

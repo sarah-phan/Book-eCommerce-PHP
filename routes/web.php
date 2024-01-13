@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminAuthorController;
 use App\Http\Controllers\AdminBookController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AdminPublishingInformationController;
 use App\Http\Controllers\AdminShippingController;
 use App\Http\Controllers\AdminSubcategoryController;
@@ -54,9 +55,7 @@ Route::get('/redirect/admin-shipping-information-main', [AdminShippingController
 
 Route::get('/redirect/admin-book-main', [AdminBookController::class, 'showBookList']);
 
-Route::get('/redirect/admin-order-main', function () {
-    return view('admin.admin-list');
-});
+Route::get('/redirect/admin-order-main', [AdminOrderController::class, 'showOrderList']);
 
 Route::get('/redirect/admin-subcategory-main', [AdminSubcategoryController::class, 'showSubcategoryList']);
 
@@ -83,9 +82,7 @@ Route::get('/redirect/admin-book-main/{book_id}/edit', [AdminBookController::cla
 Route::post('/redirect/admin-book-edit/{book_id}', [AdminBookController::class, 'updateBookWithId']);
 
 
-Route::get('/redirect/admin-order-main/edit', function () {
-    return view('admin.editFunction.admin-edit-order');
-});
+Route::get('/redirect/admin-order-main/detail/{order_id}', [AdminOrderController::class, 'getOrderById']);
 
 
 Route::get('/redirect/admin-subcategory-main/{subcategory_id}/edit', [AdminSubcategoryController::class, 'getSubCategoryWithIdInfor']);

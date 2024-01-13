@@ -175,7 +175,7 @@ switch ($segment) {
             'options' => 'Options'
         ];
         break;
-    case "admin-order-main":
+
         $title = "Book";
 
         $columns = [

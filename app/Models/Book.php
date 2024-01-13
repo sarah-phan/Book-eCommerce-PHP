@@ -40,6 +40,10 @@ class Book extends Model
         return $this->belongsTo(PublishingCompany::class, 'company_id');
     }
 
+    public function order(){
+        return $this->belongsToMany(Order::class, 'order_item', 'book_id', 'order_id');
+    }
+
     protected $primaryKey = 'book_id';
 
     public $incrementing = false;

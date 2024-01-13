@@ -14,7 +14,7 @@
     <link href="{{ asset('css/admin-search.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin-main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin-options.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/admin-edit-form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin-order.css') }}" rel="stylesheet">
 
 </head>
 

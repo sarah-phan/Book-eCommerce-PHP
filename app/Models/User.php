@@ -56,6 +56,10 @@ class User extends Authenticatable
         return $this->hasMany(ShippingInformation::class, 'user_id');
     }
 
+    public function order(){
+        return $this->hasMany(Order::class, 'user_id');
+    }
+    
     protected $primaryKey = 'user_id';
 
     public $incrementing = false;

@@ -63,7 +63,7 @@ class AdminBookController extends Controller
             $imageName = time() . '_' . str_replace(' ', '_', $originalFileName);
             $image->storeAs('public/image/bookImage', $imageName);
             // Update the book_image_path column with the stored file path
-            $bookData->book_image_path = 'image/bookImage/' . $imageName;
+            $bookData->book_image_path = 'public/image/bookImage/' . $imageName;
         }
 
         $bookData->save();
@@ -158,7 +158,7 @@ class AdminBookController extends Controller
             $imageName = time() . '_' . str_replace(' ', '_', $originalFileName);
             $image->storeAs('public/image/bookImage', $imageName);
             // Update the book_image_path column with the stored file path
-            $book_with_id->book_image_path = 'image/bookImage/' . $imageName;
+            $book_with_id->book_image_path = 'public/image/bookImage/' . $imageName;
         }
 
         $book_with_id->save();

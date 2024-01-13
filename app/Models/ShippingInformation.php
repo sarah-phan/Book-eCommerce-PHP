@@ -23,6 +23,10 @@ class ShippingInformation extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function order(){
+        return $this->hasMany(Order::class, 'shipping_company_id');
+    }
+
     protected $primaryKey = 'shipping_information_id';
 
     public $incrementing = false;
