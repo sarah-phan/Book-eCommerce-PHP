@@ -26,3 +26,16 @@
 .item_list .card:hover{
     box-shadow: #2e31925e 0px 0px 20px;
 }
+.item_list .card-img-top{
+    padding: 15px;
+}
+.rating img{
+    width: 18px
+}
+.item_list .col-3{
+    display: flex;
+    flex-direction: column;
+}
+.item_list .card{
+    flex: 1
+}

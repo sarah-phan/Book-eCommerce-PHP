@@ -63,7 +63,7 @@
             <input type="checkbox" /> Hardcover
         </span>
         <span>
-            <input type="checkbox" /> DVD
+            <input type="checkbox" /> Boxset
         </span>
     </div>
 </div>

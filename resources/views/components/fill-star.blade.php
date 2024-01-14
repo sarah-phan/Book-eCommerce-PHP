@@ -1,3 +1,1 @@
-@props(['size' => 13])
-
-<img src="{{ asset('image/icon/Star Fill.svg') }}" width="{{ $size }}" height="{{ $size }}" alt="Fill Star Icon">
+<img src="{{ asset('image/icon/Star Fill.svg') }}" alt="Fill Star Icon">

@@ -36,7 +36,7 @@ Route::middleware([
 
 Route::get('/redirect', [HomeController::class, 'redirect']);
 
-Route::get('/redirect/book-detail', function () {
+Route::get('/redirect/book-detail/{book_id}', function () {
     return view('user.book-detail');
 });
 
