@@ -10,7 +10,7 @@ use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class AdminBookController extends Controller
+class BookController extends Controller
 {
     public function showAdditionalData()
     {
@@ -199,5 +199,10 @@ class AdminBookController extends Controller
         $book_with_id->author()->detach();
         $book_with_id->delete();
         return redirect('/redirect/admin-book-main')->with('message', "Delete successfully");
+    }
+
+    public function getBookbyIdForUser($book_id){
+        $bookData = Book::with("author", "publishing_company")->find($book_id);
+        return view('user.book-detail', compact('bookData'));
     }
 }

@@ -13,4 +13,14 @@
         </div>
         @include('user.review-and-rating')
     </div>
+    <script>
+        function updatePrice(row) {
+            var quantityInput = row.querySelector('.product_quantity');
+            var priceContainer = document.getElementById('priceContainer');
+            var pricePerUnit = Number(priceContainer.getAttribute('data-price'));
+            var subtotal = quantityInput.value * pricePerUnit;
+            var subtotalElement = row.querySelector('.temporary_product_price');
+            subtotalElement.innerHTML = subtotal.toLocaleString();
+        }
+    </script>
 </x-app-layout>
