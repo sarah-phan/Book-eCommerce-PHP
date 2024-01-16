@@ -44,7 +44,7 @@
                     </form>
                 </div>
                 <div class="col-5 logo_login_modal">
-                    <img src="image/Logo.svg" alt="Logo" />
+                    <img src="{{asset('image/Logo.svg')}}" alt="Logo" />
                 </div>
             </div>
             <div class="login_modal_close_button_container">

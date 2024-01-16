@@ -44,6 +44,12 @@ class Book extends Model
         return $this->belongsToMany(Order::class, 'order_item', 'book_id', 'order_id');
     }
 
+    public function cart(){
+        return $this
+                ->belongsToMany(Cart::class, 'book_id', 'cart_id')
+                ->withPivot('quantity');
+    }
+
     protected $primaryKey = 'book_id';
 
     public $incrementing = false;
