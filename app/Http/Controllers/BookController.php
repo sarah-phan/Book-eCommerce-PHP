@@ -85,7 +85,7 @@ class BookController extends Controller
             }
         }
 
-        return redirect('/redirect/admin-book-main')->with('message', 'Add successfully');
+        return redirect('/admin-book-main')->with('message', 'Add successfully');
     }
 
     public function showBookList()
@@ -189,7 +189,7 @@ class BookController extends Controller
         }
 
 
-        return redirect('/redirect/admin-book-main')->with('message', "Edit successfully");
+        return redirect('/admin-book-main')->with('message', "Edit successfully");
     }
 
     public function deleteBook($book_id){
@@ -198,7 +198,7 @@ class BookController extends Controller
         $book_with_id->subcategory_table()->detach();
         $book_with_id->author()->detach();
         $book_with_id->delete();
-        return redirect('/redirect/admin-book-main')->with('message', "Delete successfully");
+        return redirect('/admin-book-main')->with('message', "Delete successfully");
     }
 
     public function getBookbyIdForUser($book_id){

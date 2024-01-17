@@ -2,7 +2,7 @@
 $title = '';
 $transformedData = [];
 $columns = [];
-$segment = request()->segment(2);
+$segment = request()->segment(1);
 switch ($segment) {
     case "admin-user-main":
         $title = "User";
@@ -15,7 +15,7 @@ switch ($segment) {
                 'email' => $item->email,
                 'user_phone' => $item->user_phone,
                 'options' => function () use ($item) {
-                    return view('components.admin-options', ['getUrl' => '/redirect/admin-user-main/' . $item->user_id])->render();
+                    return view('components.admin-options', ['getUrl' => '/admin-user-main/' . $item->user_id])->render();
                 }
             ];
         });
@@ -67,7 +67,7 @@ switch ($segment) {
                 'category' => $item['category'],
                 'subcategory' => $item['subcategory'],
                 'options' => function () use ($item) {
-                    return view('components.admin-options', ['getUrl' => '/redirect/admin-book-main/' . $item['book_id']])->render();
+                    return view('components.admin-options', ['getUrl' => '/admin-book-main/' . $item['book_id']])->render();
                 }
             ];
         });
@@ -95,7 +95,7 @@ switch ($segment) {
                 'author_id' => (string) $item->author_id,
                 'author_name' => $item->author_name,
                 'options' => function () use ($item) {
-                    return view('components.admin-options', ['getUrl' => '/redirect/admin-author-main/' . $item->author_id])->render();
+                    return view('components.admin-options', ['getUrl' => '/admin-author-main/' . $item->author_id])->render();
                 }
             ];
         });
@@ -115,7 +115,7 @@ switch ($segment) {
                 'category_id' => (string) $item->category_id,
                 'category_name' => $item->category_name,
                 'options' => function () use ($item) {
-                    return view('components.admin-options', ['getUrl' => '/redirect/admin-category-main/' . $item->category_id])->render();
+                    return view('components.admin-options', ['getUrl' => '/admin-category-main/' . $item->category_id])->render();
                 }
             ];
         });
@@ -137,7 +137,7 @@ switch ($segment) {
                 'subcategory_id' => $item['subcategory_id'],
                 'subcategory_name' => $item['subcategory_name'],
                 'options' => function () use ($item) {
-                    return view('components.admin-options', ['getUrl' => '/redirect/admin-subcategory-main/' . $item['subcategory_id']])->render();
+                    return view('components.admin-options', ['getUrl' => '/admin-subcategory-main/' . $item['subcategory_id']])->render();
                 }
             ];
         });
@@ -162,7 +162,7 @@ switch ($segment) {
                 'company_address' => $item->company_address,
                 'company_phone' => $item->company_phone,
                 'options' => function () use ($item) {
-                    return view('components.admin-options', ['getUrl' => '/redirect/admin-publishing-company-main/' . $item->company_id])->render();
+                    return view('components.admin-options', ['getUrl' => '/admin-publishing-company-main/' . $item->company_id])->render();
                 }
             ];
         });
@@ -204,7 +204,7 @@ switch ($segment) {
 
     <x-admin-search />
 
-    <a href="/redirect/{{$segment}}/add" class="add_data_button">
+    <a href="/{{$segment}}/add" class="add_data_button">
         Add {{$title}}
     </a>
 

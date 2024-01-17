@@ -43,6 +43,6 @@ class AdminOrderController extends Controller
         $data = Order::find($order_id);
         $data->order_status = $request->order_status;
         $data->save();
-        return redirect('/redirect/admin-order-main')->with('message', 'Edit successfully');
+        return redirect('/admin-order-main')->with('message', 'Edit successfully');
     }
 }

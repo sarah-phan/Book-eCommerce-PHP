@@ -20,7 +20,7 @@ class AdminSubcategoryController extends Controller
         $data->category_id = $request->category_id;
         $data->save();
 
-        return redirect('/redirect/admin-subcategory-main')
+        return redirect('/admin-subcategory-main')
             ->with('message', 'Add successfully');
     }
 
@@ -62,12 +62,12 @@ class AdminSubcategoryController extends Controller
 
         $subcategory_with_id->save();
 
-        return redirect('/redirect/admin-subcategory-main')->with('message', "Edit successfully");
+        return redirect('/admin-subcategory-main')->with('message', "Edit successfully");
     }
 
     public function deleteSubcategory($subcategory_id){
         $subcategory_with_id = SubCategory::find($subcategory_id);
         $subcategory_with_id->delete();
-        return redirect('/redirect/admin-subcategory-main')->with('message', "Delete successfully");
+        return redirect('/admin-subcategory-main')->with('message', "Delete successfully");
     }
 }

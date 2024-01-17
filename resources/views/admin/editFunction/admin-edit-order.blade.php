@@ -1,7 +1,7 @@
 <x-admin-layout>
     <h2 class="main_page_title">Edit Order Status</h2>
     <div class="form_container">
-        <form method="POST" action="{{url('/redirect/admin-order-edit', $data->order_id)}}">
+        <form method="POST" action="{{url('/admin-order-edit', $data->order_id)}}">
             @csrf
 
             <div class="input_container">

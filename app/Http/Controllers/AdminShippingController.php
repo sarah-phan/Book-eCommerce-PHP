@@ -30,7 +30,7 @@ class AdminShippingController extends Controller
         $data->user_id = $request->user_id;
         $data->save();
 
-        return redirect('/redirect/admin-shipping-information-main')
+        return redirect('/admin-shipping-information-main')
             ->with('message', 'Add successfully');
     }
 

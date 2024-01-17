@@ -2,7 +2,7 @@
     <h2 class="main_page_title">Author - {{$author_with_id -> author_name}}</h2>
 
     <div class="form_container">
-        <form method="post" action="{{url('/redirect/admin-author-edit', $author_with_id->author_id)}}">
+        <form method="post" action="{{url('/admin-author-edit', $author_with_id->author_id)}}">
             @csrf
 
             <div class="input_container">

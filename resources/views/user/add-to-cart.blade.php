@@ -1,4 +1,4 @@
-<form class="add_to_cart_wrapper" method="POST" action="{{url('/redirect/add-to-cart', $bookData->book_id)}}">
+<form class="add_to_cart_wrapper" method="POST" action="{{url('/add-to-cart', $bookData->book_id)}}">
     @csrf
     <p class="add_to_cart_title">Quantity</p>
     <div class="group-input">

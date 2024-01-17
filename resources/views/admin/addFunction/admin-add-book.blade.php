@@ -1,7 +1,7 @@
 <x-admin-layout>
     <h2 class="main_page_title">Add - Book</h2>
     <div class="form_container">
-        <form enctype="multipart/form-data" method="POST" action="{{url('/redirect/admin-add-book')}}">
+        <form enctype="multipart/form-data" method="POST" action="{{url('/admin-add-book')}}">
             @csrf
 
             <div class="input_container">

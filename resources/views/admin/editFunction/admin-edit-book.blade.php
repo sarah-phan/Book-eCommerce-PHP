@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-8">
             <div class="form_container_for_book">
-                <form enctype="multipart/form-data" method="POST" action="{{url('/redirect/admin-book-edit', $book_with_id->book_id)}}">
+                <form enctype="multipart/form-data" method="POST" action="{{url('/admin-book-edit', $book_with_id->book_id)}}">
                     @csrf
 
                     <div class="input_container">
@@ -155,10 +155,7 @@
         </div>
         <div class="col-3">
             <?php
-
-            use Illuminate\Support\Facades\Storage;
-
-            $imageUrl = Storage::url($book_with_id->book_image_path);
+            $imageUrl = Illuminate\Support\Facades\Storage::url($book_with_id->book_image_path);
             ?>
             @if($imageUrl=="/storage/")
             <p class="book_image_alert">No image available!</p>

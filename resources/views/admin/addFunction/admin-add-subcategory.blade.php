@@ -1,7 +1,7 @@
 <x-admin-layout>
     <h2 class="main_page_title">Add - Subcategory</h2>
     <div class="form_container">
-        <form method="POST" action="{{url('/redirect/admin-add-subcategory')}}">
+        <form method="POST" action="{{url('/admin-add-subcategory')}}">
             @csrf
 
             <p>Choose appropriate category</p>

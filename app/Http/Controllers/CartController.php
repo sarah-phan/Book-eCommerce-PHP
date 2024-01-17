@@ -12,11 +12,11 @@ class CartController extends Controller
     {
         dd($request);
         if (Auth::user()) {
-            // $data = new Cart();
+            $data = new Cart();
             return redirect()->back()->with('message', 'Add product to cart successfully');
         }
         else{
-            return redirect('/redirect')->with('message', 'Please login first');
+            return redirect('/')->with('loginMessage', 'Please login first');
         }
     }
 }

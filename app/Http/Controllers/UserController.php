@@ -34,7 +34,7 @@ class UserController extends Controller
         $data->user_phone = $validatedData['user_phone'];
         $data->save();
 
-        return redirect('/redirect/admin-user-main')
+        return redirect('/admin-user-main')
             ->with('message', 'Add successfully');
     }
 
@@ -62,12 +62,12 @@ class UserController extends Controller
 
         $user_with_id->save();
 
-        return redirect('/redirect/admin-user-main')->with('message', "Edit successfully");
+        return redirect('/admin-user-main')->with('message', "Edit successfully");
     }
 
     public function deleteUser($user_id){
         $user_with_id = user::find($user_id);
         $user_with_id->delete();
-        return redirect('/redirect/admin-user-main')->with('message', "Delete successfully");
+        return redirect('/admin-user-main')->with('message', "Delete successfully");
     }
 }

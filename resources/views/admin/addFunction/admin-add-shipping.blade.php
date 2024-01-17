@@ -1,7 +1,7 @@
 <x-admin-layout>
     <h2 class="main_page_title">Add - Shipping Information</h2>
     <div class="form_container">
-        <form method="POST" action="{{url('/redirect/admin-add-shipping-information')}}">
+        <form method="POST" action="{{url('/admin-add-shipping-information')}}">
             @csrf
 
             <div class="input_container">

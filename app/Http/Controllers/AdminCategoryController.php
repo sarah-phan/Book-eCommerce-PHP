@@ -19,7 +19,7 @@ class AdminCategoryController extends Controller
         $data->category_name = $validatedData['category_name'];
         $data->save();
 
-        return redirect('/redirect/admin-category-main')
+        return redirect('/admin-category-main')
             ->with('message', 'Add successfully');
     }
 
@@ -44,12 +44,12 @@ class AdminCategoryController extends Controller
 
         $category_with_id->save();
 
-        return redirect('/redirect/admin-category-main')->with('message', "Edit successfully");
+        return redirect('/admin-category-main')->with('message', "Edit successfully");
     }
 
     public function deleteCategory($category_id){
         $category_with_id = Category::find($category_id);
         $category_with_id->delete();
-        return redirect('/redirect/admin-category-main')->with('message', "Delete successfully");
+        return redirect('/admin-category-main')->with('message', "Delete successfully");
     }
 }

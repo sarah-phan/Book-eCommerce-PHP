@@ -50,7 +50,7 @@
                     <p class="order_footer_unit_price">{{$total_price}}</p>
                 </div>
                 <div class="direct_button_detail">
-                    <a href="/redirect/admin-order-main/detail/{{$orderData['order_id']}}">View detail</a>
+                    <a href="/admin-order-main/detail/{{$orderData['order_id']}}">View detail</a>
                 </div>
             </div>
         </div>

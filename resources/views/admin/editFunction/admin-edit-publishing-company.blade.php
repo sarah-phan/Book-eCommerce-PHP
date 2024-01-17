@@ -2,7 +2,7 @@
     <h2 class="main_page_title">Company - {{$company_with_id -> company_name}}</h2>
 
     <div class="form_container">
-        <form method="post" action="{{url('/redirect/admin-publishing-company-edit', $company_with_id->company_id)}}">
+        <form method="post" action="{{url('/admin-publishing-company-edit', $company_with_id->company_id)}}">
             @csrf
 
             <div class="input_container">

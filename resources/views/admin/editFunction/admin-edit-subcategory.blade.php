@@ -1,7 +1,7 @@
 <x-admin-layout>
     <h2 class="main_page_title">Subcategory - {{$subcategory_with_id->subcategory_name}}</h2>
     <div class="form_container">
-        <form method="POST" action="{{url('/redirect/admin-subcategory-edit', $subcategory_with_id->subcategory_id)}}">
+        <form method="POST" action="{{url('/admin-subcategory-edit', $subcategory_with_id->subcategory_id)}}">
             @csrf
 
             <p>Choose appropriate category</p>

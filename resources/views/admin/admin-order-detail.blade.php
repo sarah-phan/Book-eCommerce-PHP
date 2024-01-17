@@ -88,7 +88,7 @@
                 @if(!($data->order_status === "Success" || $data->order_status === "Fail"))
             </div>
             <div class="direct_button_detail">
-                <a href="/redirect/admin-order-main/detail/edit/{{$data->order_id}}">Edit order status</a>
+                <a href="/admin-order-main/detail/edit/{{$data->order_id}}">Edit order status</a>
             </div>
             @endif
         </div>

@@ -1,7 +1,7 @@
 <x-admin-layout>
     <h2 class="main_page_title">Category - {{$category_with_id->category_name}}</h2>
     <div class="form_container">
-        <form method="POST" action="{{url('/redirect/admin-category-edit', $category_with_id->category_id)}}">
+        <form method="POST" action="{{url('/admin-category-edit', $category_with_id->category_id)}}">
             @csrf
 
             <div class="input_container">

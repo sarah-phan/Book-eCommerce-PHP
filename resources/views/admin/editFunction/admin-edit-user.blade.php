@@ -2,7 +2,7 @@
     <h2 class="main_page_title">User - {{$user_with_id -> user_name}}</h2>
 
     <div class="form_container">
-        <form method="post" action="{{url('/redirect/admin-user-edit', $user_with_id->user_id)}}">
+        <form method="post" action="{{url('/admin-user-edit', $user_with_id->user_id)}}">
             @csrf
 
             <div class="input_container">

@@ -1,7 +1,7 @@
 <x-admin-layout>
     <h2 class="main_page_title">Add - User</h2>
     <div class="form_container">
-        <form method="POST" action="{{url('/redirect/admin-add-user')}}">
+        <form method="POST" action="{{url('/admin-add-user')}}">
             @csrf
             <div class="input_container">
                 <label for="user_name" class="form-label">Full Name</label>

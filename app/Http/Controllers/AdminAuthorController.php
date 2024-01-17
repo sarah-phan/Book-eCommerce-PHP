@@ -18,7 +18,7 @@ class AdminAuthorController extends Controller
         $data->author_name = $validatedData['author_name'];
         $data->save();
 
-        return redirect('/redirect/admin-author-main')
+        return redirect('/admin-author-main')
             ->with('message', 'Add successfully');
     }
 
@@ -42,12 +42,12 @@ class AdminAuthorController extends Controller
 
         $author_with_id->save();
 
-        return redirect('/redirect/admin-author-main')->with('message', "Edit successfully");
+        return redirect('/admin-author-main')->with('message', "Edit successfully");
     }
 
     public function deleteAuthor($author_id){
         $author_with_id = Author::find($author_id);
         $author_with_id->delete();
-        return redirect('/redirect/admin-author-main')->with('message', "Delete successfully");
+        return redirect('/admin-author-main')->with('message', "Delete successfully");
     }
 }

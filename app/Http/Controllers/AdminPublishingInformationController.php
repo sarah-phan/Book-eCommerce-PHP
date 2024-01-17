@@ -23,7 +23,7 @@ class AdminPublishingInformationController extends Controller
         $data->company_phone = $validatedData['company_phone'];
         $data->save();
 
-        return redirect('/redirect/admin-publishing-company-main')
+        return redirect('/admin-publishing-company-main')
             ->with('message', 'Add successfully');
     }
 
@@ -51,12 +51,12 @@ class AdminPublishingInformationController extends Controller
 
         $company_with_id->save();
 
-        return redirect('/redirect/admin-publishing-company-main')->with('message', "Edit successfully");
+        return redirect('/admin-publishing-company-main')->with('message', "Edit successfully");
     }
 
     public function deletePublishingCompany($company_id){
         $company_with_id = PublishingCompany::find($company_id);
         $company_with_id->delete();
-        return redirect('/redirect/admin-publishing-company-main')->with('message', "Delete successfully");
+        return redirect('/admin-publishing-company-main')->with('message', "Delete successfully");
     }
 }
