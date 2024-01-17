@@ -1,4 +1,9 @@
 <div class="main_header">
+    @if(session()->has('loginMessage'))
+    <script type="text/javascript">
+        alert("{{ session()->get('loginMessage') }}");
+    </script>
+    @endif
     <div class="row">
         <div class="col-2">
             <a href="{{url('/')}}">

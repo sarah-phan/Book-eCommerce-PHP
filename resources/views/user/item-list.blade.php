@@ -2,7 +2,7 @@
     <div class="row">
         @foreach($bookData as $data)
         <div class="col-3">
-            <a class="card" style="width: 15rem;" href="/book-detail/{{$data->book_id}}">
+            <a class="card" style="width: 14rem;" href="/book-detail/{{$data->book_id}}">
                 <?php
                 $imageUrl = Illuminate\Support\Facades\Storage::url($data->book_image_path);
                 ?>

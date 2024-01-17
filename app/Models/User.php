@@ -61,7 +61,7 @@ class User extends Authenticatable
     }
 
     public function cart(){
-        return $this->hasMany(Cart::class, 'user_id');
+        return $this->hasOne(Cart::class, 'user_id');
     }
     
     protected $primaryKey = 'user_id';

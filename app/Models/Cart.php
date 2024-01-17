@@ -9,11 +9,17 @@ class Cart extends Model
 {
     use HasFactory;
     protected $table = 'cart';
-    public function user(){
+
+    public function user()
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function book(){
-        return $this->belongsToMany(Book::class, 'cart_id', 'book_id');
+    
+    public function book()
+    {
+        return $this
+            ->belongsToMany(Book::class, 'cart_item', 'cart_id', 'book_id')
+            ->withPivot('quantity');
     }
     protected $primaryKey = 'cart_id';
     public $incrementing = false;

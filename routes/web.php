@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'redirect']);
 Route::get('/book-detail/{book_id}', [BookController::class, 'getBookbyIdForUser']);
+Route::post('/add-to-cart/{book_id}', [CartController::class, 'addCart']);
 
 Route::middleware([
     'auth:sanctum',
@@ -132,5 +133,4 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('/cart', function () {
         return view('user.cart');
     });
-    Route::post('/add-to-cart/{book_id}', [CartController::class, 'addCart']);
 });
