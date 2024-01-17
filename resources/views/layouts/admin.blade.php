@@ -26,7 +26,7 @@
         <div class="col-10">
             @include('admin.admin-header')
             <main>
-                @yield('content')
+                {{ $slot }}
             </main>
         </div>
     </div>

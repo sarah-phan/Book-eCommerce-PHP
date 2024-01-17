@@ -192,8 +192,8 @@ switch ($segment) {
 };
 ?>
 
-@extends('layouts.admin')
-@section('content')
+<x-admin-layout>
+
 
 <div class="main_page_container">
     <h2 class="main_page_title">{{$title}}</h2>
@@ -210,4 +210,4 @@ switch ($segment) {
 
     <x-admin-table :rows="$transformedData" :columns="$columns" />
 </div>
-@endsection
+</x-admin-layout>
