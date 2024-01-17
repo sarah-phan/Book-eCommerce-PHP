@@ -12,15 +12,14 @@ class HomeController extends Controller
     public function redirect()
     {
         $bookData = Book::all();
-        if(Auth::check()){
+        if (Auth::check()) {
             $role = Auth::user()->role;
             if ($role == 'admin') {
                 return redirect('/redirect/admin-book-main');
             } else {
                 return view('homepage', compact('bookData'));
             }
-        }
-        else{
+        } else {
             return view('homepage', compact('bookData'));
         }
     }
