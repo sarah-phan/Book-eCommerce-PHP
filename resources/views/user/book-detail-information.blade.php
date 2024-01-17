@@ -16,10 +16,7 @@
         </div>
         <div id="priceContainer" data-price="{{$bookData->price}}">
             <h4>
-                <?php
-                $unit_price_formatted = number_format($bookData->price, 0, '', ',');
-                ?>
-                {{$unit_price_formatted}}
+                {{number_format($bookData->price, 0, '', ',')}}
             </h4>
         </div>
     </div>

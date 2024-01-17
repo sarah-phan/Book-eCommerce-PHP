@@ -31,10 +31,7 @@
                         <p class="book_id_p">Book ID: {{$orderData['book_id'][$index]}}</p>
                     </div>
                     <div class="col-2 book_unit_price">
-                        <?php
-                        $unit_price = number_format($orderData['price'][$index], 0, '', ',');
-                        ?>
-                        <p>{{$unit_price}}</p>
+                        <p>{{number_format($orderData['price'][$index], 0, '', ',')}}</p>
                     </div>
                 </div>
                 <hr />
@@ -44,10 +41,7 @@
             <div class="order_footer">
                 <div class="total_price_order">
                     <p class="order_footer_label">Total price</p>
-                    <?php
-                    $total_price = number_format($orderData['total_price'], 0, '', ',');
-                    ?>
-                    <p class="order_footer_unit_price">{{$total_price}}</p>
+                    <p class="order_footer_unit_price">{{number_format($orderData['total_price'], 0, '', ',')}}</p>
                 </div>
                 <div class="direct_button_detail">
                     <a href="/admin-order-main/detail/{{$orderData['order_id']}}">View detail</a>

@@ -29,3 +29,6 @@ hr{
     height: 100%;
     padding-bottom: 10px;
 }
+.rating_option img{
+    width: 20px
+}

@@ -4,8 +4,7 @@
         <ul class="rating_option">
             <li>
                 <a class="five_star_wrapper">
-                <x-show-all-star :rating_number=5 />
-
+                    <x-show-all-star :rating_number=5 />
                 </a>
             </li>
             <li>

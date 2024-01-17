@@ -130,7 +130,5 @@ Route::group(['middleware' => ['admin']], function () {
 });
 
 Route::group(['middleware' => ['user']], function () {
-    Route::get('/cart', function () {
-        return view('user.cart');
-    });
+    Route::get('/cart', [CartController::class, 'showCartDetail']);
 });

@@ -20,11 +20,12 @@
   display: flex;
 }
 .cart_book_detail img{
-  width: 80px;
-  height: 80px
+  width: 90px;
+  height: 130px
 }
 .cart_book_detail p{
   font-weight: 600;
+  margin-left: 15px;
 }
 .cart_body_wrapper a{
   text-decoration: none;

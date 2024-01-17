@@ -82,6 +82,7 @@ body{
   .cart_button{
     padding-top: 0;
     margin-top: 33px;
+    width: 100%;
   }
   .account_label,
   .cart_label{
@@ -109,4 +110,10 @@ body{
 }
 .header_cart{
   padding-left: 20px;
+}
+.header_cart .cart_button .badge{
+  top: 9%;
+  right: 4.5%;
+  width: 23px;
+  padding: 2px;
 }

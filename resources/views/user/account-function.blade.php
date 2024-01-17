@@ -27,11 +27,26 @@
     @endauth
     @endif
 </div>
+
+<?php
+$totalProduct = 0;
+if (Illuminate\Support\Facades\Auth::user()) {
+    $userId = Illuminate\Support\Facades\Auth::user()->user_id;
+    $cartExisted = App\Models\Cart::where('user_id', $userId)->first();
+    $totalProduct = $cartExisted->book->count();
+}
+?>
 <div class="col-6 header_cart">
-    <button class="cart_button btn">
-        <span class="cart_icon">
+    <button class="cart_button btn" onclick="window.location.href='/cart'">
+        <span class="cart_icon position-relative">
             <img src="{{asset('image/icon/Cart.svg')}}" alt="Cart Icon" />
         </span>
+        @if ($totalProduct !== 0)
+        <span class="position-absolute translate-middle badge rounded-pill bg-danger">
+            {{$totalProduct}}
+            <span class="visually-hidden">unread messages</span>
+        </span>
+        @endif
         <span class="cart_label">Cart</span>
     </button>
 </div>

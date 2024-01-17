@@ -16,10 +16,7 @@
                         Only {{$data->inventory_quantity}} left
                     </span>
                     <p class="card-title book_price" id="book_price_id">
-                        <?php
-                        $unit_price_formatted = number_format($data->price, 0, '', ',');
-                        ?>
-                        {{$unit_price_formatted}}
+                        {{number_format($data->price, 0, '', ',')}}
                     </p>
                 </div>
             </a>

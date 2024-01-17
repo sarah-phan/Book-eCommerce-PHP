@@ -18,21 +18,22 @@ class CartController extends Controller
 
     private function handleQuantityInCart($request, $bookId, $cartExisted)
     {
-        $relatedBook = $cartExisted->book;
         $quantity = 0;
-        foreach ($relatedBook as $book) {
+        foreach ($cartExisted->book as $book) {
             if ($book->pivot->book_id === $bookId) {
                 $quantity = $book->pivot->quantity + $request->product_quantity_input;
             }
         };
+        dd($quantity);
         return $quantity;
     }
 
     public function addCart($bookId, Request $request)
     {
-        $cartExisted = $this->findCartByUserId();
-        if (Auth::user()) {
+        if (Auth::check()) {
             $data = new Cart();
+            $cartExisted = $this->findCartByUserId();
+
             if ($cartExisted == null) {
                 $data->cart_id = (string) Str::uuid();
                 $data->user_id = Auth::user()->user_id;
@@ -49,8 +50,24 @@ class CartController extends Controller
             ]);
 
             return redirect()->back()->with('cartMessage', 'Add product to cart successfully');
-            // } else {
-            //     return redirect('/')->with('loginMessage', 'Please login first');
+        } else {
+            return redirect('/')->with('loginMessage', 'Please login first');
         }
+    }
+
+    public function showCartDetail()
+    {
+        $userId = Auth::user()->user_id;
+        $cartData = Cart::where('user_id', $userId)->with('book')->first();
+        $totalProduct = $cartData->book->count();
+
+        //use foreach instead of map because book data is not a single Book instance, but a collection of books
+        $bookData = [];
+        foreach ($cartData->book as $data) {
+            $sub_array = [$data->book_image_path, $data->title, $data->price, $data->pivot->quantity];
+            array_push($bookData, $sub_array);
+        };
+
+        return view('user.cart', compact('bookData', 'totalProduct'));
     }
 }

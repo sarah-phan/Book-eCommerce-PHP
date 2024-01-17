@@ -55,7 +55,6 @@
                 <?php
                 $unit_price = $bookData->price;
                 $quantity = $bookData->pivot->quantity;
-                $unit_price_formatted = number_format($unit_price, 0, '', ',');
                 $subtotal = number_format($unit_price * $quantity, 0, '', ',');
                 $imageUrl = \Illuminate\Support\Facades\Storage::url($bookData->book_image_path);
                 ?>
@@ -71,7 +70,7 @@
                         <p>{{$bookData->pivot->quantity}}</p>
                     </td>
                     <td>
-                        <p>{{$unit_price_formatted}}</p>
+                        <p>{{number_format($bookData->price, 0, '', ',')}}</p>
                     </td>
                     <td>
                         <p>{{$subtotal}}</p>
