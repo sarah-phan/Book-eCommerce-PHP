@@ -1,24 +1,19 @@
 <div class="shipping_information_wrapper">
-    <p class="shipping_information_title">Deliver to</p>
-    <div class="d-flex">
-        <input type="checkbox" checked />
-        <div class="align-self-center receiver_info">
-            <span class="receiver_name">Phan Ánh Ngọc</span>
-            <span class="receiver_phone">0888023722</span>
-            <p class="receiver_address">Khu Phố 6, Phường Linh Trung, Quận Thủ Đức, Hồ Chí Minh</p>
-        </div>
+    <div class="shipping_information_header">
+        <p class="shipping_information_title">Deliver to</p>
+        <a href="/cart/shipping-information-edit" class="shipping_information_edit">Edit</a>
     </div>
-    <hr />
-    <div class="d-flex">
+    @foreach($shippingData as $data)
+    <div class="d-flex" style="margin-top: 10px">
         <input type="checkbox" />
         <div class="align-self-center receiver_info">
-            <span class="receiver_name">Phan Ánh Ngọc</span>
-            <span class="receiver_phone">0888023722</span>
-            <p class="receiver_address">Khu Phố 6, Phường Linh Trung, Quận Thủ Đức, Hồ Chí Minh</p>
+            <span class="receiver_name">{{$data->receiver_name}}</span>
+            <span class="receiver_phone">{{$data->receiver_phone}}</span>
+            <p class="receiver_address">{{$data->address}}</p>
         </div>
     </div>
-    <div class="shipping_information_header">
-    </div>
+    @endforeach
+    <hr />
 </div>
 <div class="payment_choose_wrapper">
     <p class="payment_choose_title">Payment Method</p>

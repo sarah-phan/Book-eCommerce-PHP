@@ -88,3 +88,11 @@
 .payment_choose_wrapper .visible {
     height: auto;
 }
+.shipping_information_header{
+    display: flex;
+    justify-content: space-between;
+}
+.shipping_information_header a{
+    text-decoration: none;
+    color: #2E3192;
+}

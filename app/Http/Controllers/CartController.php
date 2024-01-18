@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\ShippingInformation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -15,19 +16,7 @@ class CartController extends Controller
         $cartExisted = Cart::where('user_id', $userId)->first();
         return $cartExisted;
     }
-
-    private function handleQuantityInCart($request, $bookId, $cartExisted)
-    {
-        $quantity = 0;
-        foreach ($cartExisted->book as $book) {
-            if ($book->pivot->book_id === $bookId) {
-                $quantity = $book->pivot->quantity + $request->product_quantity_input;
-            }
-        };
-        dd($quantity);
-        return $quantity;
-    }
-
+    
     public function addCart($bookId, Request $request)
     {
         if (Auth::check()) {
@@ -73,7 +62,9 @@ class CartController extends Controller
             ];
             array_push($bookData, $sub_array);
         };
-        return view('user.cart', compact('bookData', 'totalProduct'));
+
+        $shippingData = ShippingInformation::where('user_id', $userId)->get();
+        return view('user.cart', compact('bookData', 'totalProduct', 'shippingData'));
     }
 
     public function updateCart($cartId, $bookId, Request $request)
