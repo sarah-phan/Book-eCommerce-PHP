@@ -19,6 +19,25 @@
         @include('user.review-and-rating')
     </div>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var addToCartWrapper = document.querySelector('.add_to_cart_wrapper')
+
+            document.querySelectorAll('.quantity_button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var inputField = this.parentNode.querySelector('.product_quantity');
+                    var currentValue = parseInt(inputField.value);
+                    if (this.name === 'action' && this.value === 'increase') {
+                        inputField.value = currentValue + 1;
+                    } else if (this.name === 'action' && this.value === 'decrease' && currentValue > 1) {
+                        inputField.value = currentValue - 1;
+                    }
+                    updatePrice(addToCartWrapper);
+                });
+            });
+            window.onload = updatePrice(addToCartWrapper);
+        });
+
         function updatePrice(row) {
             var quantityInput = row.querySelector('.product_quantity');
             var priceContainer = document.getElementById('priceContainer');

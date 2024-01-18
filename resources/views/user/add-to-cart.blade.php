@@ -2,11 +2,11 @@
     @csrf
     <p class="add_to_cart_title">Quantity</p>
     <div class="group-input">
-        <button class="add_to_cart_decrease_button">
+        <button name="action" value="decrease" class="quantity_button">
             <img src="{{asset('image/icon/Decrease.svg')}}" alt="Decrease Icon" />
         </button>
         <input type="number" class="product_quantity" value="1" name="product_quantity_input">
-        <button class="add_to_cart_increase_button">
+        <button name="action" value="increase" class="quantity_button">
             <img src="{{asset('image/icon/Increase.svg')}}" alt="Increase Icon" />
         </button>
     </div>

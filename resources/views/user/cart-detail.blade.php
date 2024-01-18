@@ -35,21 +35,26 @@
             </p>
         </div>
         <div class="col-2">
-            <div class="cart_group_input">
-                <span class="add_to_cart_decrease_button">
-                    <img src="{{asset('image/icon/Decrease.svg')}}" alt="Decrease Icon" />
-                </span>
-                <input type="number" class="product_quantity" value="{{$data[3]}}" name="product_quantity_input">
-                <span class="add_to_cart_increase_button">
-                    <img src="{{asset('image/icon/Increase.svg')}}" alt="Increase Icon" />
-                </span>
-            </div>
+            <form method="POST" action="/cart/update-cart/{{$data[4]}}/{{$data[5]}}">
+                @csrf
+                <div class="cart_group_input">
+                    <button type="submit" name="action" value="decrease" class="quantity_button">
+                        <img src="{{asset('image/icon/Decrease.svg')}}" alt="Decrease Icon" />
+                    </button>
+                    <input type="number" class="product_quantity" value="{{$data[3]}}" name="product_quantity_input">
+                    <button type="submit" name="action" value="increase" class="quantity_button">
+                        <img src="{{asset('image/icon/Increase.svg')}}" alt="Increase Icon" />
+                    </button>
+                </div>
+            </form>
         </div>
         <div class="col-2">
             <p class="temporary_product_price"></p>
         </div>
         <div class="col-1">
-            <img src="{{asset('image/icon/Trash.svg')}}" alt="Trash Icon" />
+            <a href="/cart/delete-cart-item/{{$data[4]}}/{{$data[5]}}">
+                <img src="{{asset('image/icon/Trash.svg')}}" alt="Trash Icon" />
+            </a>
         </div>
     </div>
     <hr />

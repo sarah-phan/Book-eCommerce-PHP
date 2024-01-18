@@ -12,8 +12,26 @@
         </div>
     </div>
     <script>
+        document.querySelectorAll('.quantity_button').forEach(button => {
+            var cartWrapper = document.querySelector('.cart_wrapper')
+
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                var inputField = this.parentNode.querySelector('.product_quantity');
+                var currentValue = parseInt(inputField.value);
+                if (this.name === 'action' && this.value === 'increase') {
+                    inputField.value = currentValue + 1;
+                } else if (this.name === 'action' && this.value === 'decrease' && currentValue > 1) {
+                    inputField.value = currentValue - 1;
+                }
+                updatePriceForCartDetail(cartWrapper)
+                this.form.submit();
+            });
+        window.onload = updatePriceForCartDetail(cartWrapper);
+
+        });
+
         function updatePriceForCartDetail(row) {
-            console.log(row);
             var quantityInputs = row.querySelectorAll('.product_quantity');
             var total = 0;
 
@@ -27,7 +45,6 @@
 
                 total += subtotal;
                 var totalElement = row.querySelector('.total_product_price');
-                console.log(totalElement);
                 if (totalElement != null) {
                     totalElement.innerHTML = total.toLocaleString();
                 }

@@ -163,10 +163,6 @@ class BookController extends Controller
 
         $book_with_id->save();
 
-        //  For each relationship (categories, subcategories, and authors), sync takes an array of IDs and updates the associated pivot table.
-        //  It will attach any IDs that are not already attached to the model and detach any that are not in the given array.
-        // There's no need to generate a new UUID for each pivot table record. The sync method will handle the attachment and detachment of relationships based on the IDs you pass to it. 
-        // The UUID generation would be relevant if you had custom fields in the pivot table that needed unique identifiers on each sync, but that's not a common practice.
         if ($request->has('category_id')) {
             $book_with_id->category()->detach();
             foreach ($request->category_id as $categoryId) {

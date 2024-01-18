@@ -1,14 +1,12 @@
-.add_to_cart_increase_button,
-.add_to_cart_decrease_button{
+.quantity_button{
     background-color: white;
     border-radius: 5px;
     border: 1px solid gainsboro;
     height: 33px;
     color: #2E3192;
 }
-.add_to_cart_increase_button:hover,
-.add_to_cart_decrease_button:hover{
-    background-color: #d14abbc9;
+.quantity_button:hover{
+    background-color: #2e31925e;
 }
 .product_quantity{
     border: 1px solid gainsboro;

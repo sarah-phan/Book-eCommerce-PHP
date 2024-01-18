@@ -131,4 +131,6 @@ Route::group(['middleware' => ['admin']], function () {
 
 Route::group(['middleware' => ['user']], function () {
     Route::get('/cart', [CartController::class, 'showCartDetail']);
+    Route::post('/cart/update-cart/{cart_id}/{book_id}',[CartController::class, 'updateCart']);
+    Route::get('/cart/delete-cart-item/{cart_id}/{book_id}', [CartController::class, 'deleteCartItem']);
 });

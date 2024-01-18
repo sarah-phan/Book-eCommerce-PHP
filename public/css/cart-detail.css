@@ -34,8 +34,8 @@
 .cart_body_wrapper .temporary_product_price{
   color: black;
 }
-.cart_body_wrapper .add_to_cart_decrease_button,
-.cart_body_wrapper .add_to_cart_increase_button{
+.cart_body_wrapper .quantity_button,
+.cart_body_wrapper .quantity_button{
   padding: 6px;
   border: unset;
 }
@@ -46,15 +46,11 @@
 }
 .cart_group_input{
   border: 1px solid gainsboro;
-  width:115px;
+  width: 104px;
   border-radius: 5px;
+  display: flex;
 }
-.cart_body_wrapper .add_to_cart_decrease_button{
+.cart_body_wrapper .quantity_button{
   border-right: 1px solid gainsboro;
   border-radius: unset;
-}
-.cart_body_wrapper .add_to_cart_decrease_button:hover,
-.cart_body_wrapper .add_to_cart_increase_button:hover{
-  background-color: unset;
-  cursor: pointer;
 }

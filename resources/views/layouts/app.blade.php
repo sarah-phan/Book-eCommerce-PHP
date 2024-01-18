@@ -36,7 +36,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/product-image-detail-slide.js') }}"></script>
     <script src="{{ asset('js/generate-read-more.js') }}"></script>
-    <script src="{{asset('js/calculate-temporary-price.js')}}"></script>
     <script src="{{asset('js/shipping-payment-detail.js')}}"></script>
 </body>
 

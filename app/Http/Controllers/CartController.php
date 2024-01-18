@@ -64,10 +64,31 @@ class CartController extends Controller
         //use foreach instead of map because book data is not a single Book instance, but a collection of books
         $bookData = [];
         foreach ($cartData->book as $data) {
-            $sub_array = [$data->book_image_path, $data->title, $data->price, $data->pivot->quantity];
+            $sub_array = [
+                $data->book_image_path,
+                $data->title, $data->price,
+                $data->pivot->quantity,
+                $data->pivot->cart_id,
+                $data->book_id
+            ];
             array_push($bookData, $sub_array);
         };
-
         return view('user.cart', compact('bookData', 'totalProduct'));
+    }
+
+    public function updateCart($cartId, $bookId, Request $request)
+    {
+        $quantityRequest = $request->input('product_quantity_input');
+        $cart = Cart::find($cartId);
+        $cart->book()->updateExistingPivot($bookId, [
+            'quantity' => $quantityRequest
+        ]);
+        return redirect()->back();
+    }
+
+    public function deleteCartItem($cartId, $bookId){
+        $cart = Cart::find($cartId);
+        $cart->book()->detach($bookId);
+        return redirect()->back();
     }
 }

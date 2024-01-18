@@ -112,8 +112,8 @@ body{
   padding-left: 20px;
 }
 .header_cart .cart_button .badge{
-  top: 9%;
-  right: 4.5%;
-  width: 23px;
+  top: 40px;
+  right: 65px;
+  width: 22px;
   padding: 2px;
 }
