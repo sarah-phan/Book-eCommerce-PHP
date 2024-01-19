@@ -54,3 +54,8 @@
   border-right: 1px solid gainsboro;
   border-radius: unset;
 }
+.show_cart_error_message{
+  background-color: red;
+  color: white;
+  padding: 10px;
+}

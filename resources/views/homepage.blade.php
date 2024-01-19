@@ -1,4 +1,9 @@
 <x-app-layout>
+    @if(session()->has('cartMessage'))
+    <script type="text/javascript">
+        alert("{{ session()->get('cartMessage') }}");
+    </script>
+    @endif
     <div class="homepage_content">
         <div class="container-fluid sidebar_wrapper">
             <div class="row flex-nowrap">

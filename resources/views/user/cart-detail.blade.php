@@ -18,6 +18,9 @@
     </div>
 </div>
 <div class="cart_body_wrapper">
+    @if($bookData === [])
+    <p class="cart_subtitle" style="text-align: center; margin-bottom: 0;">There's nothing in the cart</p>
+    @else
     @forEach($bookData as $data)
     <?php
     $imageUrl = \Illuminate\Support\Facades\Storage::url($data[0]);
@@ -59,4 +62,6 @@
     </div>
     <hr />
     @endforeach
+    @endif
+
 </div>

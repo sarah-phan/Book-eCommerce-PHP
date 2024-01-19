@@ -1,5 +1,11 @@
 <x-app-layout>
     <div class="cart_wrapper" style="margin: auto; width: 97%;">
+        @error('shipping_information_id')
+        <div class="show_cart_error_message">{{ $message }}</div>
+        @enderror
+        @error('paymentMethod')
+        <div class="show_cart_error_message">{{ $message }}</div>
+        @enderror
         <h4 class="cart_title">Shopping cart</h4>
         <p class="cart_subtitle">There are {{$totalProduct}} items in your cart</p>
         <form action="/order" method="POST">

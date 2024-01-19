@@ -38,7 +38,7 @@ class CartController extends Controller
                 'book_id' => $bookId
             ]);
 
-            return redirect()->back()->with('cartMessage', 'Add product to cart successfully');
+            return redirect('/')->with('cartMessage', 'Add product to cart successfully');
         } else {
             return redirect('/')->with('loginMessage', 'Please login first');
         }
@@ -55,7 +55,8 @@ class CartController extends Controller
         foreach ($cartData->book as $data) {
             $sub_array = [
                 $data->book_image_path,
-                $data->title, $data->price,
+                $data->title, 
+                $data->price,
                 $data->pivot->quantity,
                 $data->pivot->cart_id,
                 $data->book_id

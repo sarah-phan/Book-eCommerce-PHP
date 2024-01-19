@@ -12,13 +12,20 @@ class OrderController extends Controller
 {
     public function makeOrder(Request $request)
     {
+        //Validation
         $userId = Auth::user()->user_id;
-        // dd($request);
         $validatedData = [];
-        array_push($validatedData, $request->validate([
-            'shipping_information_id' => ['required'],
-            'paymentMethod' => ['required'],
-        ]));
+        array_push($validatedData, $request->validate(
+            [
+                'shipping_information_id' => ['required'],
+                'paymentMethod' => ['required'],
+            ],
+            [
+                'shipping_information_id.required' => "Please choose an address",
+                'paymentMethod.required' => "Please choose a payment method"
+            ]
+        ));
+
         if ($request->paymentMethod === 'Card') {
             array_push($validatedData, $request->validate([
                 'nameOnCard' => ['required', 'string', 'regex:/^[A-Z]+$/'],
@@ -27,6 +34,7 @@ class OrderController extends Controller
             ]));
         };
 
+        //Add Data to order table
         foreach ($validatedData as $validatedData) {
             $orderData = new Order();
             $orderData->order_id = (string) Str::uuid();
@@ -36,19 +44,25 @@ class OrderController extends Controller
             if ($validatedData['paymentMethod'] == "Cash") {
                 $orderData->order_status = "Confirming";
             }
+            if ($validatedData['paymentMethod'] == "Card") {
+                $orderData->order_status = "Pending";
+            }
             $orderData->save();
         }
 
+        //Add data to cart item table
         $cartData = Cart::where('user_id', $userId)->with('book')->first();
         $cartItemData = [];
-        foreach($cartData->book as $cartData){
+        foreach ($cartData->book as $data) {
             $sub_array = [
-                $cartData->book_id,
-                $cartData->pivot->quantity
+                $data->book_id,
+                $data->pivot->quantity
             ];
             array_push($cartItemData, $sub_array);
+            //delete cart_item
+            $cartData->book()->detach($data->book_id);
         }
-        foreach($cartItemData as $data){
+        foreach ($cartItemData as $data) {
             $orderData->book()->attach($data[0], [
                 'order_item_id' => (string) Str::uuid(),
                 'book_id' => $data[0],
@@ -56,6 +70,10 @@ class OrderController extends Controller
                 'order_id' => $orderData->order_id
             ]);
         }
-        dd("test");
+
+        //Redirect after succefully add
+        if ($validatedData['paymentMethod'] == "Cash") {
+            return redirect('/success_confirm');
+        }
     }
 }

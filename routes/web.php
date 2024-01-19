@@ -140,4 +140,7 @@ Route::group(['middleware' => ['user']], function () {
     Route::post('/cart/shipping-information-edit/edit/{cart_id}', [ShippingController::class, 'updateShippingInformation']);
     Route::get('/cart/shipping-information-edit/delete/{cart_id}', [ShippingController::class, 'deleteShipping']);
     Route::post('/order', [OrderController::class, 'makeOrder']);
+    Route::get('/success_confirm', function(){
+        return view('user.order-success-confirm');
+    });
 });

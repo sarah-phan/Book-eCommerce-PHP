@@ -67,7 +67,9 @@
         <input type="hidden" name="total" id="total" value="" />
     </div>
     <input type="hidden" name="paymentMethod" id="paymentMethod" value="">
+    @if(!($bookData === []))
     <button class="cart_order_button" type="submit">
         Order
     </button>
+    @endif
 </div>

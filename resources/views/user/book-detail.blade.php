@@ -1,9 +1,4 @@
 <x-app-layout>
-    @if(session()->has('cartMessage'))
-    <script type="text/javascript">
-        alert("{{ session()->get('cartMessage') }}");
-    </script>
-    @endif
     <div class="book_detail_content" style="margin: auto; width: 97%;">
         <div class="row">
             <div class="col-4 product_image_detail_slide">
