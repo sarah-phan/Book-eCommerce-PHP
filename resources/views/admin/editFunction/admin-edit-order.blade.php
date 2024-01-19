@@ -22,8 +22,8 @@
                     <option value="Success" @if($data->order_status == "Success") selected @endif>
                         Success
                     </option>
-                    <option value="Fail" @if($data->order_status == "Fail") selected @endif>
-                        Fail
+                    <option value="Cancel" @if($data->order_status == "Cancel") selected @endif>
+                        Cancel
                     </option>
                 </select>
             </div>

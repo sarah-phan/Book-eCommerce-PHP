@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
 function expandButton(buttonId, contentId) {
     var button = document.getElementById(buttonId);
         var content = document.getElementById(contentId);
-        console.log(button);
-        console.log(content);
         // Check if the button is currently expanded
         var isExpanded = !content.classList.contains('hidden');
 
@@ -29,6 +27,9 @@ function expandButton(buttonId, contentId) {
             button.classList.add('visible');
             content.classList.remove('hidden');
         }
+
+        var paymentMethod = (buttonId === 'payment_by_cash_button') ? 'Cash' : 'Card';
+        document.getElementById('paymentMethod').value = paymentMethod;
 }
 function setInitialState(buttonId, contentId) {
     var button = document.getElementById(buttonId);

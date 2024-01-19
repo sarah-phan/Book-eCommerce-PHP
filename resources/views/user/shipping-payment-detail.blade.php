@@ -5,7 +5,7 @@
     </div>
     @foreach($shippingData as $data)
     <div class="d-flex" style="margin-top: 10px">
-        <input type="checkbox" />
+        <input type="checkbox" value="{{$data->shipping_information_id}}" name="shipping_information_id"/>
         <div class="align-self-center receiver_info">
             <span class="receiver_name">{{$data->receiver_name}}</span>
             <span class="receiver_phone">{{$data->receiver_phone}}</span>
@@ -17,7 +17,7 @@
 </div>
 <div class="payment_choose_wrapper">
     <p class="payment_choose_title">Payment Method</p>
-    <button class="payment_by_cash" onclick="expandButton('payment_by_cash_button', 'payment_by_cash_content')" id="payment_by_cash_button">
+    <button type="button" class="payment_by_cash" onclick="expandButton('payment_by_cash_button', 'payment_by_cash_content')" id="payment_by_cash_button">
         <div class="button_header d-flex">
             <span>Cash on delivery</span>
             <span>
@@ -33,7 +33,7 @@
             </p>
         </div>
     </button>
-    <button class="payment_by_card" id="payment_by_card_button">
+    <button type="button" class="payment_by_card" id="payment_by_card_button">
         <div class="button_header d-flex" onclick="expandButton('payment_by_card_button', 'payment_by_card_content')">
             <span>Card</span>
             <span>
@@ -41,22 +41,22 @@
             </span>
         </div>
         <div class="payment_by_card_content hidden" id="payment_by_card_content">
-            <form class="card_information_form">
+            <div class="card_information_form">
                 <label for="nameOnCard">Name On Card</label>
-                <input type="text" id="nameOnCard" />
+                <input type="text" id="nameOnCard" name="nameOnCard"/>
                 <label for="cardNumber">Card Number</label>
                 <input type="number" id="cardNumber" />
                 <div class="d-flex">
                     <div>
                         <label for="expireDate">Expire Date</label>
-                        <input type="number" id="expireDate" />
+                        <input id="expireDate" name="expireDate"/>
                     </div>
                     <div style="margin-left: 30px;">
                         <label for="cvvCode">CVV</label>
-                        <input type="number" id="cvvCode" />
+                        <input type="number" id="cvvCode" name="cvvCode"/>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </button>
 </div>
@@ -64,8 +64,10 @@
     <div class="price_info d-flex">
         <span class="total_amount_title">Total</span>
         <h4 class="total_product_price"></h4>
+        <input type="hidden" name="total" id="total" value="" />
     </div>
-    <button class="cart_order_button">
+    <input type="hidden" name="paymentMethod" id="paymentMethod" value="">
+    <button class="cart_order_button" type="submit">
         Order
     </button>
 </div>

@@ -2,14 +2,16 @@
     <div class="cart_wrapper" style="margin: auto; width: 97%;">
         <h4 class="cart_title">Shopping cart</h4>
         <p class="cart_subtitle">There are {{$totalProduct}} items in your cart</p>
-        <div class="row no-gutters">
-            <div class="col-8">
-                @include('user/cart-detail')
+        <form action="/order" method="POST">
+            <div class="row no-gutters">
+                <div class="col-8">
+                    @include('user/cart-detail')
+                </div>
+                <div class="col-4">
+                    @include('user/shipping-payment-detail')
+                </div>
             </div>
-            <div class="col-4">
-                @include('user/shipping-payment-detail')
-            </div>
-        </div>
+        </form>
     </div>
     <script>
         document.querySelectorAll('.quantity_button').forEach(button => {
@@ -27,7 +29,7 @@
                 updatePriceForCartDetail(cartWrapper)
                 this.form.submit();
             });
-        window.onload = updatePriceForCartDetail(cartWrapper);
+            window.onload = updatePriceForCartDetail(cartWrapper);
 
         });
 
@@ -47,6 +49,7 @@
                 var totalElement = row.querySelector('.total_product_price');
                 if (totalElement != null) {
                     totalElement.innerHTML = total.toLocaleString();
+                    document.getElementById('total').value = total;
                 }
             });
         }

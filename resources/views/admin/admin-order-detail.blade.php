@@ -84,7 +84,7 @@
                 ?>
                 <p class="order_footer_label">Total price:</p>
                 <p class="order_footer_unit_price">{{$total_price}}</p>
-                @if(!($data->order_status === "Success" || $data->order_status === "Fail"))
+                @if(!($data->order_status === "Success" || $data->order_status === "Cancel"))
             </div>
             <div class="direct_button_detail">
                 <a href="/admin-order-main/detail/edit/{{$data->order_id}}">Edit order status</a>
