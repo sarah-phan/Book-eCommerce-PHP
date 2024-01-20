@@ -10,11 +10,14 @@ use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
-    public function makeOrder(Request $request)
+    public function makeOrder(Request $request, $totalValue)
     {
-        //Validation
+        //Initialize
         $userId = Auth::user()->user_id;
+        $cartData = Cart::where('user_id', $userId)->with('book')->first();
         $validatedData = [];
+
+        //Validation
         array_push($validatedData, $request->validate(
             [
                 'shipping_information_id' => ['required'],
@@ -34,13 +37,17 @@ class OrderController extends Controller
             ]));
         };
 
+        if($cartData->book != []){
+            return redirect()->back()->with('cartEmptyMessage', "Your cart is empty. Add some products");
+        }
+
         //Add Data to order table
         foreach ($validatedData as $validatedData) {
             $orderData = new Order();
             $orderData->order_id = (string) Str::uuid();
             $orderData->shipping_information_id = $validatedData['shipping_information_id'];
             $orderData->user_id = $userId;
-            $orderData->total_price = $request->total;
+            $orderData->total_price = $totalValue;
             if ($validatedData['paymentMethod'] == "Cash") {
                 $orderData->order_status = "Confirming";
             }
@@ -51,7 +58,6 @@ class OrderController extends Controller
         }
 
         //Add data to cart item table
-        $cartData = Cart::where('user_id', $userId)->with('book')->first();
         $cartItemData = [];
         foreach ($cartData->book as $data) {
             $sub_array = [
@@ -73,7 +79,7 @@ class OrderController extends Controller
 
         //Redirect after succefully add
         if ($validatedData['paymentMethod'] == "Cash") {
-            return redirect('/success_confirm');
+            return view('user.order-success-confirm');
         }
     }
 }

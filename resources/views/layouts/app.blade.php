@@ -16,7 +16,7 @@
     <link href="{{ asset('css/review-and-rating.css') }}" rel="stylesheet">
     <link href="{{ asset('css/item-list.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/cart-detail.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/cart.css') }}" rel="stylesheet">
     <link href="{{ asset('css/shipping-payment-detail.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 

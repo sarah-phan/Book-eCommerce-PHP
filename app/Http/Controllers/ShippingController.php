@@ -10,6 +10,12 @@ use Illuminate\Support\Str;
 
 class ShippingController extends Controller
 {
+    public function showShippingListForChoosing(Request $request){
+        $userId = Auth::user()->user_id;
+        $shippingData = ShippingInformation::where('user_id', $userId)->get();
+        $totalValue = $request->query('total');
+        return view('user.shipping-payment-detail', compact('shippingData', 'totalValue'));
+    }
     public function showShippingList(){
         $userId = Auth::user()->user_id;
         $shippingData = ShippingInformation::where('user_id', $userId)->get();

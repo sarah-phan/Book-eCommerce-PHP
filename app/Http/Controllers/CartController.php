@@ -63,9 +63,7 @@ class CartController extends Controller
             ];
             array_push($bookData, $sub_array);
         };
-
-        $shippingData = ShippingInformation::where('user_id', $userId)->get();
-        return view('user.cart', compact('bookData', 'totalProduct', 'shippingData'));
+        return view('user.cart', compact('bookData', 'totalProduct'));
     }
 
     public function updateCart($cartId, $bookId, Request $request)

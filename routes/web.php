@@ -135,12 +135,10 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('/cart', [CartController::class, 'showCartDetail']);
     Route::post('/cart/update-cart/{cart_id}/{book_id}',[CartController::class, 'updateCart']);
     Route::get('/cart/delete-cart-item/{cart_id}/{book_id}', [CartController::class, 'deleteCartItem']);
+    Route::get('/cart/shipping-information', [ShippingController::class, 'showShippingListForChoosing']);
     Route::get('/cart/shipping-information-edit', [ShippingController::class, 'showShippingList']);
     Route::post('/cart/shipping-information-edit/add', [ShippingController::class, 'addShippingInformation']);
     Route::post('/cart/shipping-information-edit/edit/{cart_id}', [ShippingController::class, 'updateShippingInformation']);
     Route::get('/cart/shipping-information-edit/delete/{cart_id}', [ShippingController::class, 'deleteShipping']);
-    Route::post('/order', [OrderController::class, 'makeOrder']);
-    Route::get('/success_confirm', function(){
-        return view('user.order-success-confirm');
-    });
+    Route::post('/order/{totalValue}', [OrderController::class, 'makeOrder']);
 });

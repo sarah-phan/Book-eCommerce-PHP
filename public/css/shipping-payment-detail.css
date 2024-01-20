@@ -15,18 +15,11 @@
 .receiver_phone{
     padding-left: 20px;
 }
-.price_info{
-    justify-content: space-between;
-}
-.total_amount_wrapper h4{
-    color: #2E3192;
-}
 
 .payment_by_card{
     margin-top: 10px;
 }
-.payment_choose_wrapper button,
-.cart_order_button{
+.payment_choose_wrapper button{
     padding: 15px 10px;
     display: block;
     width: 100%;
@@ -38,12 +31,6 @@
     color: #2E3192;
     justify-content: space-between;
     margin-bottom: 10px;
-}
-.cart_order_button{
-    background-color: #2E3192;
-    border: 1px solid #2E3192;
-    color: white;
-    margin-top: 15px;
 }
 .payment_by_cash_content {
     font-size: 16px;
@@ -79,12 +66,10 @@
 .payment_choose_wrapper button {
     transition: height 0.3s ease-in-out;
 }
-
 .payment_choose_wrapper .hidden {
     height: 0;
     overflow: hidden;
 }
-
 .payment_choose_wrapper .visible {
     height: auto;
 }
@@ -95,4 +80,12 @@
 .shipping_information_header a{
     text-decoration: none;
     color: #2E3192;
+}
+.shipping_payment_wrapper{
+    margin: auto;
+    width: 70%
+}
+.order_button_container{
+    display: flex;
+    justify-content: center;
 }
