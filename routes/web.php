@@ -67,11 +67,11 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get("/admin-order-main/detail/edit/{order_id}", [AdminOrderController::class, 'getOrderStatus']);
     Route::post("/admin-order-edit/{order_id}", [AdminOrderController::class, 'updateOrderStatus']);
 
-    
+
     Route::get('/admin-category-main/{category_id}/edit', [AdminCategoryController::class, 'getCategoryWithIdInfor']);
     Route::post('/admin-category-edit/{category_id}', [AdminCategoryController::class, 'updateCategoryWithIdInfor']);
 
-    
+
     Route::get('/admin-subcategory-main/{subcategory_id}/edit', [AdminSubcategoryController::class, 'getSubCategoryWithIdInfor']);
     Route::post('/admin-subcategory-edit/{subcategory_id}', [AdminSubcategoryController::class, 'updateSubcategoryWithIdInfor']);
 
@@ -133,7 +133,7 @@ Route::group(['middleware' => ['admin']], function () {
 
 Route::group(['middleware' => ['user']], function () {
     Route::get('/cart', [CartController::class, 'showCartDetail']);
-    Route::post('/cart/update-cart/{cart_id}/{book_id}',[CartController::class, 'updateCart']);
+    Route::post('/cart/update-cart/{cart_id}/{book_id}', [CartController::class, 'updateCart']);
     Route::get('/cart/delete-cart-item/{cart_id}/{book_id}', [CartController::class, 'deleteCartItem']);
     Route::get('/cart/shipping-information', [ShippingController::class, 'showShippingListForChoosing']);
     Route::get('/cart/shipping-information-edit', [ShippingController::class, 'showShippingList']);
@@ -141,4 +141,7 @@ Route::group(['middleware' => ['user']], function () {
     Route::post('/cart/shipping-information-edit/edit/{cart_id}', [ShippingController::class, 'updateShippingInformation']);
     Route::get('/cart/shipping-information-edit/delete/{cart_id}', [ShippingController::class, 'deleteShipping']);
     Route::post('/order/{totalValue}', [OrderController::class, 'makeOrder']);
+    Route::get('/handleCardPayment/{orderId}', [OrderController::class, 'handleCardPayment']);
+    Route::get('/success', [OrderController::class, 'cardPaymentSuccess'])->name('checkout.success');
+    Route::get('/fail', [OrderController::class, 'cardPaymentCancel'])->name('checkout.cancel');
 });

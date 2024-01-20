@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('user_id');
             $table->uuid('shipping_information_id');
             $table->string('order_status');
+            $table->string('session_id');
             $table->timestamps();
             $table->double('total_price');
 

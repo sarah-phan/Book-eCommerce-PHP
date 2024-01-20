@@ -45,24 +45,6 @@
     padding-bottom: 6px;
     text-align: left;
 }
-.card_information_form label,
-.card_information_form input{
-    display: block;
-}
-.card_information_form input{
-    width: 100%;
-    border-radius: 5px;
-    border: 2px solid gainsboro;
-}
-.card_information_form label{
-    font-size: 16px;
-    margin-top: 23px;
-    color: gray;
-}
-.card_information_form input:focus{
-    outline: none !important;
-    border: 2px solid #2E3192;
-}
 .payment_choose_wrapper button {
     transition: height 0.3s ease-in-out;
 }

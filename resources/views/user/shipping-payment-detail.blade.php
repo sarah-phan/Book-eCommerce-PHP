@@ -57,22 +57,12 @@
                                 </span>
                             </div>
                             <div class="payment_by_card_content hidden" id="payment_by_card_content">
-                                <div class="card_information_form">
-                                    <label for="nameOnCard">Name On Card</label>
-                                    <input type="text" id="nameOnCard" name="nameOnCard" />
-                                    <label for="cardNumber">Card Number</label>
-                                    <input type="number" id="cardNumber" />
-                                    <div class="d-flex">
-                                        <div>
-                                            <label for="expireDate">Expire Date</label>
-                                            <input id="expireDate" name="expireDate" />
-                                        </div>
-                                        <div style="margin-left: 30px;">
-                                            <label for="cvvCode">CVV</label>
-                                            <input type="number" id="cvvCode" name="cvvCode" />
-                                        </div>
-                                    </div>
-                                </div>
+                                <p>
+                                    Secure and convenient – pay for your items online using your credit or debit card!
+                                </p>
+                                <p>
+                                    Enjoy a seamless shopping experience with quick, electronic transactions. No need to provide bank account details for returns or refunds.
+                                </p>
                             </div>
                         </button>
                         <input type="hidden" name="paymentMethod" id="paymentMethod" value="">
