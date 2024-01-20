@@ -37,7 +37,11 @@ class OrderController extends Controller
             ]));
         };
 
-        if($cartData->book != []){
+        $checkCartItem = [];
+        foreach($cartData->book as $data){
+            array_push($checkCartItem, $data);
+        }
+        if($checkCartItem == []){
             return redirect()->back()->with('cartEmptyMessage', "Your cart is empty. Add some products");
         }
 

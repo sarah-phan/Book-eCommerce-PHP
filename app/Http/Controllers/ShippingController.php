@@ -39,7 +39,7 @@ class ShippingController extends Controller
         $data->receiver_phone = $request->receiver_phone;
         $data->address = $request->address;
         $data->save();
-        return redirect('/cart');
+        return redirect()->back();
     }
 
     public function deleteShipping($cartId){
