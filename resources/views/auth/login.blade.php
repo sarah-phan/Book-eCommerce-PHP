@@ -28,9 +28,10 @@
                             <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" required>
                             <label for="email">Email address</label>
                         </div>
-                        <div class="form-floating">
-                            <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+                        <div class="form-floating" style="display: flex;">
+                            <input type="password" class="form-control password_field_input" id="password" placeholder="Password" name="password" required>
                             <label for="password">Password</label>
+                            <img class="password_field_icon" src="{{asset('image/icon/Show Password.svg')}}" onclick="togglePasswordVisibility()"/>
                         </div>
                         <button type="submit" class="login_modal_submit_button">
                             Login

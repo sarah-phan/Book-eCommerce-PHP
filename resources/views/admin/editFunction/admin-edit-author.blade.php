@@ -9,7 +9,7 @@
                 <label for="author_name" class="form-label">Author Name</label>
                 <input type="text" class="admin_edit_form form-control" id="author_name" name="author_name" value="{{$author_with_id -> author_name}}">
             </div>
-            @error('company_name')
+            @error('author_name')
             <div class="error_display">{{ $message }}</div>
             @enderror
 

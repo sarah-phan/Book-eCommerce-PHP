@@ -18,6 +18,9 @@
                             <p class="shipping_information_title">Deliver to</p>
                             <a href="/cart/shipping-information-edit" class="shipping_information_edit">Edit</a>
                         </div>
+                        @if($shippingData->isEmpty())
+                        <p class="cart_subtitle" style="text-align: center; margin-bottom: 0;">You haven't stored any address</p>
+                        @else
                         @foreach($shippingData as $data)
                         <div class="d-flex" style="margin-bottom: 20px">
                             <input type="checkbox" value="{{$data->shipping_information_id}}" name="shipping_information_id" />
@@ -28,6 +31,7 @@
                             </div>
                         </div>
                         @endforeach
+                        @endif
                     </div>
                 </div>
                 <div class="col-6">

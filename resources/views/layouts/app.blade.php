@@ -37,6 +37,7 @@
     <script src="{{ asset('js/product-image-detail-slide.js') }}"></script>
     <script src="{{ asset('js/generate-read-more.js') }}"></script>
     <script src="{{asset('js/shipping-payment-detail.js')}}"></script>
+    <script src="{{asset('js/show-hide-password.js')}}"></script>
 </body>
 
 </html>

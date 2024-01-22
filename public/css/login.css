@@ -60,11 +60,13 @@
 .login_modal_close_button_container img{
     width: 40px;
 }
-.input_password_container{
-    position: relative;;
+.password_field_input{
+    position: relative;
 }
-.show_password_icon{
+.password_field_icon{
     position: absolute;
-    top: 27%;
-    right: 5%
+    width: 26px;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
 }

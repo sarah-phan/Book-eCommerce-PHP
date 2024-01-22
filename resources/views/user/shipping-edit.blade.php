@@ -18,7 +18,22 @@
         <p class="shipping_edit_title">Shipping information</p>
     </div>
     <div class="shipping_edit_body">
+        @error('receiver_name')
+        <div class="shipping_error_message">{{ $message }}</div>
+        @enderror
+        @error('receiver_phone')
+        <div class="shipping_error_message">{{ $message }}</div>
+        @enderror
+        @error('address')
+        <div class="shipping_error_message">{{ $message }}</div>
+        @enderror
         <div class="address_list_container">
+            @if($shippingData->isEmpty())
+            <button type="button" class="add_address_button" data-bs-toggle="modal" data-bs-target="#addAddressModal">
+                ADD
+            </button>
+            an address
+            @else
             <div class="address_list">
                 <div class="row">
                     @foreach($shippingData as $data)
@@ -44,6 +59,7 @@
                 </button>
                 an address
             </p>
+            @endif
         </div>
     </div>
     <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModal" aria-hidden="true">
@@ -129,4 +145,5 @@
         });
     });
 </script>
+
 </html>

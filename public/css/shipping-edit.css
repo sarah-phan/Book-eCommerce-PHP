@@ -1,6 +1,7 @@
 body{
     background-color: rgb(245, 245, 250);
-    margin-top: 0px;c
+    margin-top: 0px;
+}
 .shipping_edit_title{
     display: flex;
     align-items: center;
@@ -17,7 +18,8 @@ body{
 .shipping_edit_body{
     margin-top: 25px;
 }
-.address_list_container{
+.address_list_container,
+.shipping_error_message{
     width:87%;
     margin:auto;
 }
@@ -65,4 +67,10 @@ body{
 }
 .address_list_col{
     margin-top: 20px;
+}
+.shipping_error_message{
+    background-color: red;
+    color: white;
+    margin-bottom: 10px;
+    padding: 10px;
 }

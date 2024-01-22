@@ -9,10 +9,16 @@ use Illuminate\Support\Str;
 
 class AdminSubcategoryController extends Controller
 {
-    public function addSubcategory(Request $request){
-        $validatedData = $request->validate([
-            'subcategory_name' => ['required', 'string', 'max:255'],
-        ]);
+    public function addSubcategory(Request $request)
+    {
+        $validatedData = $request->validate(
+            [
+                'subcategory_name' => ['required', 'regex: /^[a-zA-Z\s&.]+$/'],
+            ],
+            [
+                'subcategory_name.regex' => 'Wrong subcategory name format'
+            ]
+        );
 
         $data = new SubCategory();
         $data->subcategory_id = (string) Str::uuid();
@@ -28,12 +34,12 @@ class AdminSubcategoryController extends Controller
     {
         $subcategory = SubCategory::with('category')->get();
 
-        $data = $subcategory->map(function($subcategory){
-            return[
-                'subcategory_id'=>$subcategory->subcategory_id,
-                'subcategory_name'=>$subcategory->subcategory_name,
-                'category_id'=>$subcategory->category->category_id,
-                'category_name'=>$subcategory->category->category_name
+        $data = $subcategory->map(function ($subcategory) {
+            return [
+                'subcategory_id' => $subcategory->subcategory_id,
+                'subcategory_name' => $subcategory->subcategory_name,
+                'category_id' => $subcategory->category->category_id,
+                'category_name' => $subcategory->category->category_name
             ];
         });
         return view('admin.admin-list', compact('data'));
@@ -45,13 +51,15 @@ class AdminSubcategoryController extends Controller
         return view('admin.addFunction.admin-add-subcategory', compact('data'));
     }
 
-    public function getSubCategoryWithIdInfor($subcategory_id){
+    public function getSubCategoryWithIdInfor($subcategory_id)
+    {
         $subcategory_with_id = SubCategory::find($subcategory_id);
         $category_data = Category::all();
         return view('admin.editFunction.admin-edit-subcategory', compact('subcategory_with_id', 'category_data'));
     }
 
-    public function updateSubcategoryWithIdInfor(Request $request, $subcategory_id){
+    public function updateSubcategoryWithIdInfor(Request $request, $subcategory_id)
+    {
         $validatedData = $request->validate([
             'subcategory_name' => ['required', 'string', 'max:255'],
         ]);
@@ -65,7 +73,8 @@ class AdminSubcategoryController extends Controller
         return redirect('/admin-subcategory-main')->with('message', "Edit successfully");
     }
 
-    public function deleteSubcategory($subcategory_id){
+    public function deleteSubcategory($subcategory_id)
+    {
         $subcategory_with_id = SubCategory::find($subcategory_id);
         $subcategory_with_id->delete();
         return redirect('/admin-subcategory-main')->with('message', "Delete successfully");

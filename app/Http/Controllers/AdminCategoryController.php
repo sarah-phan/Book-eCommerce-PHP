@@ -10,9 +10,14 @@ class AdminCategoryController extends Controller
 {
     public function addCategory(Request $request)
     {
-        $validatedData = $request->validate([
-            'category_name' => ['required', 'string', 'max:255'],
-        ]);
+        $validatedData = $request->validate(
+            [
+                'category_name' => ['required', 'regex: /^[a-zA-Z\s&.]+$/'],
+            ],
+            [
+                'category_name.regex' => 'Wrong category name format'
+            ]
+        );
 
         $data = new Category;
         $data->category_id = (string) Str::uuid();
@@ -29,15 +34,22 @@ class AdminCategoryController extends Controller
         return view('admin.admin-list', compact('data'));
     }
 
-    public function getCategoryWithIdInfor($category_id){
+    public function getCategoryWithIdInfor($category_id)
+    {
         $category_with_id = Category::find($category_id);
         return view('admin.editFunction.admin-edit-category', compact('category_with_id'));
     }
 
-    public function updateCategoryWithIdInfor(Request $request, $category_id){
-        $validatedData = $request->validate([
-            'category_name' => ['required', 'string', 'max:255'],
-        ]);
+    public function updateCategoryWithIdInfor(Request $request, $category_id)
+    {
+        $validatedData = $request->validate(
+            [
+                'category_name' => ['required', 'regex: /^[a-zA-Z\s&.]+$/'],
+            ],
+            [
+                'category_name.regex' => 'Wrong category name format'
+            ]
+        );
 
         $category_with_id = Category::find($category_id);
         $category_with_id->category_name = $validatedData['category_name'];
@@ -47,7 +59,8 @@ class AdminCategoryController extends Controller
         return redirect('/admin-category-main')->with('message', "Edit successfully");
     }
 
-    public function deleteCategory($category_id){
+    public function deleteCategory($category_id)
+    {
         $category_with_id = Category::find($category_id);
         $category_with_id->delete();
         return redirect('/admin-category-main')->with('message', "Delete successfully");

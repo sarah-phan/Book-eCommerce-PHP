@@ -8,10 +8,16 @@ use Illuminate\Support\Str;
 
 class AdminAuthorController extends Controller
 {
-    public function addAuthor(Request $request){
-        $validatedData = $request->validate([
-            'author_name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
-        ]);
+    public function addAuthor(Request $request)
+    {
+        $validatedData = $request->validate(
+            [
+                'author_name' => ['required', 'regex:/^[a-zA-Z\s&.]+$/'],
+            ],
+            [
+                'author_name.regex' => 'Wrong format for name of author'
+            ]
+        );
 
         $data = new Author;
         $data->author_id = (string) Str::uuid();
@@ -22,20 +28,28 @@ class AdminAuthorController extends Controller
             ->with('message', 'Add successfully');
     }
 
-    public function showAuthorList(){
+    public function showAuthorList()
+    {
         $data = Author::all();
         return view('admin.admin-list', compact('data'));
     }
 
-    public function getAuthorWithIdInfor($author_id){
+    public function getAuthorWithIdInfor($author_id)
+    {
         $author_with_id = Author::find($author_id);
         return view('admin.editFunction.admin-edit-author', compact('author_with_id'));
     }
 
-    public function updateAuthorWithIdInfor(Request $request, $author_id){
-        $validatedData = $request->validate([
-            'author_name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
-        ]);
+    public function updateAuthorWithIdInfor(Request $request, $author_id)
+    {
+        $validatedData = $request->validate(
+            [
+                'author_name' => ['required', 'regex:/^[a-zA-Z\s&.]+$/'],
+            ],
+            [
+                'author_name.regex' => 'Wrong format for name of author'
+            ]
+        );
 
         $author_with_id = Author::find($author_id);
         $author_with_id->author_name = $validatedData['author_name'];
@@ -45,7 +59,8 @@ class AdminAuthorController extends Controller
         return redirect('/admin-author-main')->with('message', "Edit successfully");
     }
 
-    public function deleteAuthor($author_id){
+    public function deleteAuthor($author_id)
+    {
         $author_with_id = Author::find($author_id);
         $author_with_id->delete();
         return redirect('/admin-author-main')->with('message', "Delete successfully");

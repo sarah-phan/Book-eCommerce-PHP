@@ -48,3 +48,15 @@
     top: 27%;
     right: 5%
 }
+.password_field_input,
+.password_confirmation_field_input{
+    position: relative;
+}
+.password_field_icon,
+.password_confirmation_field_icon{
+    position: absolute;
+    width: 26px;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+}

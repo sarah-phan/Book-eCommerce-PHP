@@ -33,7 +33,9 @@ $totalProduct = 0;
 if (Illuminate\Support\Facades\Auth::user()) {
     $userId = Illuminate\Support\Facades\Auth::user()->user_id;
     $cartExisted = App\Models\Cart::where('user_id', $userId)->first();
-    $totalProduct = $cartExisted->book->count();
+    if($cartExisted){
+        $totalProduct = $cartExisted->book->count();
+    }
 }
 ?>
 <div class="col-6 header_cart">

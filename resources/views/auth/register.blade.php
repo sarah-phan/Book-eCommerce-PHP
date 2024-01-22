@@ -42,16 +42,18 @@
                         <div class="register_error_display">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password" required name="password">
+                    <div class="form-floating mb-3" style="display: flex;">
+                        <input type="password" class="form-control password_field_input" id="password" required name="password">
                         <label for="password">Password</label>
+                        <img class="password_field_icon" src="{{asset('image/icon/Show Password.svg')}}" onclick="togglePasswordVisibility()"/>
                         @error('password')
                         <div class="register_error_display">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password_confirmation" required name="password_confirmation">
+                    <div class="form-floating mb-3" style="display: flex;">
+                        <input type="password" class="form-control password_confirmation_field_input" id="password_confirmation" required name="password_confirmation">
                         <label for="password_confirmation">Confirm password</label>
+                        <img class="password_confirmation_field_icon" src="{{asset('image/icon/Show Password.svg')}}" onclick="togglePasswordVisibilityForConfirmation()"/>
                         @error('password_confirmation')
                         <div class="register_error_display">{{ $message }}</div>
                         @enderror
@@ -72,6 +74,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="{{asset('js/show-hide-password.js')}}"></script>
 </body>
 
 </html>

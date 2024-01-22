@@ -16,11 +16,18 @@ class AdminShippingController extends Controller
     }
     public function addShippingInfor(Request $request)
     {
-        $validatedData = $request->validate([
-            'receiver_name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
-            'address' => ['required', 'string', 'max:255'],
-            'receiver_phone' => ['required', 'regex:/^(0|\+84)(3|5|7|8|9)\d{8}$/'],
-        ]);
+        $validatedData = $request->validate(
+            [
+                'receiver_name' => ['required', 'regex:/^[a-zA-Z\s]+$/'],
+                'receiver_phone' => ['required', 'regex:/^(0|\+84)(3|5|7|8|9)\d{8}$/'],
+                'address' => ['required', 'string'],
+            ],
+            [
+                'receiver_name.string' => "Wrong format of receiver name",
+                'receiver_phone.regex' => "Wrong format of receiver phone",
+                'address' => "Wrong format of address"
+            ]
+        );
 
         $data = new ShippingInformation();
         $data->shipping_information_id = (string) Str::uuid();
@@ -36,20 +43,6 @@ class AdminShippingController extends Controller
 
     public function showShippingList()
     {
-        // $user = User::with('shipping_information')->get();
-
-        // $data = $user->flatMap(function ($user) {
-        //     return $user->shipping_information->map(function ($shipping_information) use ($user) {
-        //         return [
-        //             'shipping_information_id' => $shipping_information->shipping_information_id,
-        //             'receiver_name' => $shipping_information->receiver_name,
-        //             'receiver_phone' => $shipping_information->receiver_phone,
-        //             'address' => $shipping_information->address,
-        //             'user_name' => $user->user_name,
-        //         ];
-        //     });
-        // });
-
         $shipping = ShippingInformation::with('user')->get();
         $data = $shipping->map(function ($shipping) {
             return [
